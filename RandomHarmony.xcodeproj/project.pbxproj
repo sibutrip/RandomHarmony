@@ -7,18 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		741BD30C2AB9C82100E818E8 /* UpperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30B2AB9C82100E818E8 /* UpperExtension.swift */; };
+		741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30D2AB9C83000E818E8 /* TriadQuality.swift */; };
+		741BD3102AB9C83E00E818E8 /* SeventhQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */; };
+		741BD3122AB9C85200E818E8 /* HarmonyChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3112AB9C85200E818E8 /* HarmonyChord.swift */; };
+		741BD3142AB9E44700E818E8 /* AccidentalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3132AB9E44700E818E8 /* AccidentalStyle.swift */; };
+		741BD3162AB9E46A00E818E8 /* Pitch+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3152AB9E46A00E818E8 /* Pitch+Extension.swift */; };
 		749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */; };
 		749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C49A02AB77ACE005A1533 /* ContentView.swift */; };
 		749C49A32AB77AD1005A1533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749C49A22AB77AD1005A1533 /* Assets.xcassets */; };
 		749C49A62AB77AD1005A1533 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749C49A52AB77AD1005A1533 /* Preview Assets.xcassets */; };
+		749C49AD2AB77AEC005A1533 /* HarmonyVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */; };
+		749C49B02AB77B93005A1533 /* Tonic in Frameworks */ = {isa = PBXBuildFile; productRef = 749C49AF2AB77B93005A1533 /* Tonic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		741BD30B2AB9C82100E818E8 /* UpperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperExtension.swift; sourceTree = "<group>"; };
+		741BD30D2AB9C83000E818E8 /* TriadQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriadQuality.swift; sourceTree = "<group>"; };
+		741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhQuality.swift; sourceTree = "<group>"; };
+		741BD3112AB9C85200E818E8 /* HarmonyChord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyChord.swift; sourceTree = "<group>"; };
+		741BD3132AB9E44700E818E8 /* AccidentalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalStyle.swift; sourceTree = "<group>"; };
+		741BD3152AB9E46A00E818E8 /* Pitch+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pitch+Extension.swift"; sourceTree = "<group>"; };
 		749C499B2AB77ACE005A1533 /* RandomHarmony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomHarmony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomHarmonyApp.swift; sourceTree = "<group>"; };
 		749C49A02AB77ACE005A1533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		749C49A22AB77AD1005A1533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749C49A52AB77AD1005A1533 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyVm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749C49B02AB77B93005A1533 /* Tonic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +69,13 @@
 			children = (
 				749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */,
 				749C49A02AB77ACE005A1533 /* ContentView.swift */,
+				749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */,
+				741BD30B2AB9C82100E818E8 /* UpperExtension.swift */,
+				741BD30D2AB9C83000E818E8 /* TriadQuality.swift */,
+				741BD3112AB9C85200E818E8 /* HarmonyChord.swift */,
+				741BD3152AB9E46A00E818E8 /* Pitch+Extension.swift */,
+				741BD3132AB9E44700E818E8 /* AccidentalStyle.swift */,
+				741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */,
 				749C49A22AB77AD1005A1533 /* Assets.xcassets */,
 				749C49A42AB77AD1005A1533 /* Preview Content */,
 			);
@@ -83,6 +106,9 @@
 			dependencies = (
 			);
 			name = RandomHarmony;
+			packageProductDependencies = (
+				749C49AF2AB77B93005A1533 /* Tonic */,
+			);
 			productName = RandomHarmony;
 			productReference = 749C499B2AB77ACE005A1533 /* RandomHarmony.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +137,9 @@
 				Base,
 			);
 			mainGroup = 749C49922AB77ACE005A1533;
+			packageReferences = (
+				749C49AE2AB77B93005A1533 /* XCRemoteSwiftPackageReference "Tonic" */,
+			);
 			productRefGroup = 749C499C2AB77ACE005A1533 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +166,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				741BD30C2AB9C82100E818E8 /* UpperExtension.swift in Sources */,
+				741BD3142AB9E44700E818E8 /* AccidentalStyle.swift in Sources */,
+				741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */,
+				741BD3122AB9C85200E818E8 /* HarmonyChord.swift in Sources */,
 				749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */,
+				749C49AD2AB77AEC005A1533 /* HarmonyVm.swift in Sources */,
+				741BD3162AB9E46A00E818E8 /* Pitch+Extension.swift in Sources */,
 				749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */,
+				741BD3102AB9C83E00E818E8 /* SeventhQuality.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +380,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		749C49AE2AB77B93005A1533 /* XCRemoteSwiftPackageReference "Tonic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Tonic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		749C49AF2AB77B93005A1533 /* Tonic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 749C49AE2AB77B93005A1533 /* XCRemoteSwiftPackageReference "Tonic" */;
+			productName = Tonic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 749C49932AB77ACE005A1533 /* Project object */;
 }
