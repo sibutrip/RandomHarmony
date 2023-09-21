@@ -8,5 +8,5 @@
 import Foundation
 
 enum AccidentalStyle {
-    case sharp, flat
+    case sharp, flat, none
 }

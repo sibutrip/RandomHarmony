@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import Tonic
 
 enum UpperExtension {
     case minorNine, nine, augmentedNine, eleven, sharpEleven, minorThirteen, thirteen, augmentedThirteen
-    var pitchClass: Int8 {
+    var pitchClass: Int {
         switch self {
         case .minorNine:
             return 1
@@ -30,7 +29,7 @@ enum UpperExtension {
             return 10
         }
     }
-    func transposed(to root: Pitch) -> Int8 {
+    func transposed(to root: Pitch) -> Int {
         return self.pitchClass + root.pitchClass
     }
 }

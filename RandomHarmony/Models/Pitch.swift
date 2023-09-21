@@ -6,7 +6,16 @@
 //
 
 import Foundation
-import Tonic
+
+struct Pitch {
+    let midiNote: Int
+    var pitchClass: Int {
+        midiNote % 12
+    }
+    init(_ midiNote: Int) {
+        self.midiNote = midiNote
+    }
+}
 
 extension Pitch {
     var accidentalStyle: AccidentalStyle {

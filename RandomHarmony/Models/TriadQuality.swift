@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import Tonic
 
 enum TriadQuality {
     case major, minor, diminished, augmented, sus
-    var pitchClasses: [Int8] {
+    var pitchClasses: [Int] {
         switch self {
         case .major:
             return [0,4,7]
@@ -24,7 +23,7 @@ enum TriadQuality {
             return [0,5,7]
         }
     }
-    func transposed(to root: Pitch) -> [Int8] {
+    func transposed(to root: Pitch) -> [Int] {
         return self.pitchClasses.map { $0 + root.pitchClass }
     }
 }

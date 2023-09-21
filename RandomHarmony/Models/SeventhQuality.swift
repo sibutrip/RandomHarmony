@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import Tonic
 
 enum SeventhQuality {
     case major, minor, diminished
-    var pitchClass: Int8 {
+    var pitchClass: Int {
         switch self {
         case .major:
             return 11
@@ -20,7 +19,7 @@ enum SeventhQuality {
             return 9
         }
     }
-    func transposed(to root: Pitch) -> Int8 {
+    func transposed(to root: Pitch) -> Int {
         return self.pitchClass + root.pitchClass
     }
 }
