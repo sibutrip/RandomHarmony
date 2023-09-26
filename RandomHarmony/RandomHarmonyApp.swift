@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct RandomHarmonyApp: App {
+    let raw: String
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Text(raw)
+//            ContentView()
+            
         }
+    }
+    init() {
+        raw = Scale.B.chord(triad: .sus, seventh: .diminished, upperExtensions: [.augmentedNine,.augmentedThirteen,.eleven,.minorNine,.thirteen,.nine]).map {$0.rawValue + " "}.joined()
     }
 }

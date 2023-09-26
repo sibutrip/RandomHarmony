@@ -12,14 +12,19 @@
 		741BD30C2AB9C82100E818E8 /* UpperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30B2AB9C82100E818E8 /* UpperExtension.swift */; };
 		741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30D2AB9C83000E818E8 /* TriadQuality.swift */; };
 		741BD3102AB9C83E00E818E8 /* SeventhQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */; };
-		741BD3122AB9C85200E818E8 /* HarmonyChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3112AB9C85200E818E8 /* HarmonyChord.swift */; };
-		741BD3142AB9E44700E818E8 /* AccidentalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3132AB9E44700E818E8 /* AccidentalStyle.swift */; };
+		741BD3122AB9C85200E818E8 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3112AB9C85200E818E8 /* Chord.swift */; };
+		741BD3142AB9E44700E818E8 /* Accidental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3132AB9E44700E818E8 /* Accidental.swift */; };
 		741BD3162AB9E46A00E818E8 /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3152AB9E46A00E818E8 /* Pitch.swift */; };
 		741BD3182AB9F9CF00E818E8 /* StaffRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3172AB9F9CF00E818E8 /* StaffRow.swift */; };
 		741BD31A2ABA428F00E818E8 /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3192ABA428F00E818E8 /* NoteRow.swift */; };
+		74228BDE2AC1FF6600091B19 /* Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74228BDD2AC1FF6600091B19 /* Scale.swift */; };
+		74228BE02AC2005600091B19 /* Interval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74228BDF2AC2005600091B19 /* Interval.swift */; };
 		743CC5012ABB7D3700E3E46E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743CC5002ABB7D3700E3E46E /* Note.swift */; };
 		7457C3F12ABC873E00AC22E5 /* LedgerLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F02ABC873E00AC22E5 /* LedgerLineView.swift */; };
 		7457C3F32ABC88D300AC22E5 /* LedgerLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F22ABC88D300AC22E5 /* LedgerLine.swift */; };
+		7457C3F52ABC9B1000AC22E5 /* ChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F42ABC9B1000AC22E5 /* ChordView.swift */; };
+		7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F62ABCCB2600AC22E5 /* NoteName.swift */; };
+		7457C3F92ABCCB3B00AC22E5 /* PitchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */; };
 		749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */; };
 		749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C49A02AB77ACE005A1533 /* ContentView.swift */; };
 		749C49A32AB77AD1005A1533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749C49A22AB77AD1005A1533 /* Assets.xcassets */; };
@@ -33,14 +38,19 @@
 		741BD30B2AB9C82100E818E8 /* UpperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperExtension.swift; sourceTree = "<group>"; };
 		741BD30D2AB9C83000E818E8 /* TriadQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriadQuality.swift; sourceTree = "<group>"; };
 		741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhQuality.swift; sourceTree = "<group>"; };
-		741BD3112AB9C85200E818E8 /* HarmonyChord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyChord.swift; sourceTree = "<group>"; };
-		741BD3132AB9E44700E818E8 /* AccidentalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalStyle.swift; sourceTree = "<group>"; };
+		741BD3112AB9C85200E818E8 /* Chord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
+		741BD3132AB9E44700E818E8 /* Accidental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accidental.swift; sourceTree = "<group>"; };
 		741BD3152AB9E46A00E818E8 /* Pitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
 		741BD3172AB9F9CF00E818E8 /* StaffRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRow.swift; sourceTree = "<group>"; };
 		741BD3192ABA428F00E818E8 /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
+		74228BDD2AC1FF6600091B19 /* Scale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale.swift; sourceTree = "<group>"; };
+		74228BDF2AC2005600091B19 /* Interval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interval.swift; sourceTree = "<group>"; };
 		743CC5002ABB7D3700E3E46E /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		7457C3F02ABC873E00AC22E5 /* LedgerLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerLineView.swift; sourceTree = "<group>"; };
 		7457C3F22ABC88D300AC22E5 /* LedgerLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerLine.swift; sourceTree = "<group>"; };
+		7457C3F42ABC9B1000AC22E5 /* ChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordView.swift; sourceTree = "<group>"; };
+		7457C3F62ABCCB2600AC22E5 /* NoteName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteName.swift; sourceTree = "<group>"; };
+		7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchClass.swift; sourceTree = "<group>"; };
 		749C499B2AB77ACE005A1533 /* RandomHarmony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomHarmony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomHarmonyApp.swift; sourceTree = "<group>"; };
 		749C49A02AB77ACE005A1533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,11 +76,14 @@
 				741BD3152AB9E46A00E818E8 /* Pitch.swift */,
 				7457C3F22ABC88D300AC22E5 /* LedgerLine.swift */,
 				743CC5002ABB7D3700E3E46E /* Note.swift */,
-				741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */,
-				740A120F2ABB22B5006F6180 /* EnvironmentValues.swift */,
-				741BD3132AB9E44700E818E8 /* AccidentalStyle.swift */,
-				741BD3112AB9C85200E818E8 /* HarmonyChord.swift */,
+				7457C3F62ABCCB2600AC22E5 /* NoteName.swift */,
+				7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */,
+				74228BDD2AC1FF6600091B19 /* Scale.swift */,
+				74228BDF2AC2005600091B19 /* Interval.swift */,
+				741BD3132AB9E44700E818E8 /* Accidental.swift */,
+				741BD3112AB9C85200E818E8 /* Chord.swift */,
 				741BD30D2AB9C83000E818E8 /* TriadQuality.swift */,
+				741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */,
 				741BD30B2AB9C82100E818E8 /* UpperExtension.swift */,
 			);
 			path = Models;
@@ -99,9 +112,11 @@
 				749C49A02AB77ACE005A1533 /* ContentView.swift */,
 				741BD3172AB9F9CF00E818E8 /* StaffRow.swift */,
 				741BD3192ABA428F00E818E8 /* NoteRow.swift */,
+				7457C3F42ABC9B1000AC22E5 /* ChordView.swift */,
 				74023AB42ABB30730071739B /* NoteView.swift */,
 				7457C3F02ABC873E00AC22E5 /* LedgerLineView.swift */,
 				749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */,
+				740A120F2ABB22B5006F6180 /* EnvironmentValues.swift */,
 				74023AB62ABB42BE0071739B /* Models */,
 				749C49A22AB77AD1005A1533 /* Assets.xcassets */,
 				749C49A42AB77AD1005A1533 /* Preview Content */,
@@ -193,9 +208,13 @@
 			files = (
 				7457C3F12ABC873E00AC22E5 /* LedgerLineView.swift in Sources */,
 				741BD30C2AB9C82100E818E8 /* UpperExtension.swift in Sources */,
-				741BD3142AB9E44700E818E8 /* AccidentalStyle.swift in Sources */,
+				74228BE02AC2005600091B19 /* Interval.swift in Sources */,
+				741BD3142AB9E44700E818E8 /* Accidental.swift in Sources */,
 				741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */,
-				741BD3122AB9C85200E818E8 /* HarmonyChord.swift in Sources */,
+				7457C3F52ABC9B1000AC22E5 /* ChordView.swift in Sources */,
+				741BD3122AB9C85200E818E8 /* Chord.swift in Sources */,
+				7457C3F92ABCCB3B00AC22E5 /* PitchClass.swift in Sources */,
+				7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */,
 				749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */,
 				7457C3F32ABC88D300AC22E5 /* LedgerLine.swift in Sources */,
 				749C49AD2AB77AEC005A1533 /* HarmonyVm.swift in Sources */,
@@ -206,6 +225,7 @@
 				740A12102ABB22B5006F6180 /* EnvironmentValues.swift in Sources */,
 				74023AB52ABB30730071739B /* NoteView.swift in Sources */,
 				749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */,
+				74228BDE2AC1FF6600091B19 /* Scale.swift in Sources */,
 				741BD3102AB9C83E00E818E8 /* SeventhQuality.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

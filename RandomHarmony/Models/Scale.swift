@@ -1,0 +1,285 @@
+//
+//  Scale.swift
+//  RandomHarmony
+//
+//  Created by Cory Tripathy on 9/25/23.
+//
+
+import Foundation
+
+struct Scale {
+    let root: FixedSolfege
+
+    let `do`: Accidental
+    let re: Accidental
+    let mi: Accidental
+    let fa: Accidental
+    let sol: Accidental
+    let la: Accidental
+    let ti: Accidental
+    
+    private init(root: FixedSolfege, `do`: Accidental, re: Accidental, mi: Accidental, fa: Accidental, sol: Accidental, la: Accidental, ti: Accidental) {
+        self.root = root
+        self.do = `do`
+        self.re = re
+        self.mi = mi
+        self.fa = fa
+        self.sol = sol
+        self.la = la
+        self.ti = ti
+    }
+    
+    func chord(triad: TriadQuality, seventh: SeventhQuality? = nil, upperExtensions: [UpperExtension]? = nil) -> [FixedSolfege] {
+        let solfeges = (triad.pitchClasses
+        + [(seventh?.pitchClass)]
+        + (upperExtensions?.map { $0.pitchClass} ?? []))
+            .compactMap { $0 }
+        return chordTones(from: solfeges)
+    }
+    
+    func chordTones(from solfeges: [Interval]) -> [FixedSolfege] {
+        return solfeges.map {
+            return chordTone(from: $0)
+        }
+    }
+    
+    private func chordTone(from solfege: Interval) -> FixedSolfege {
+        let doLetterName = root.noteName
+        let reLetterName = root.noteName.adding(interval: .second)
+        let miLetterName = root.noteName.adding(interval: .third)
+        let faLetterName = root.noteName.adding(interval: .fourth)
+        let solLetterName = root.noteName.adding(interval: .fifth)
+        let laLetterName = root.noteName.adding(interval: .sixth)
+        let tiLetterName = root.noteName.adding(interval: .seventh)
+        switch solfege {
+        case .unison:
+            let accidental = self.do
+            return doLetterName.chordTone(with: accidental)
+        case .augmentedUnison:
+            let accidental = self.do.addingSharp
+            return doLetterName.chordTone(with: accidental)
+        case .minorSecond:
+            let accidental = self.re.addingFlat
+            return reLetterName.chordTone(with: accidental)
+        case .majorSecond:
+            let accidental = self.re
+            return reLetterName.chordTone(with: accidental)
+        case .augmentedSecond:
+            let accidental = self.re.addingSharp
+            return reLetterName.chordTone(with: accidental)
+        case .minorThird:
+            let accidental = self.mi.addingFlat
+            return miLetterName.chordTone(with: accidental)
+        case .majorThird:
+            let accidental = self.mi
+            return miLetterName.chordTone(with: accidental)
+        case .perfectFouth:
+            let accidental = self.fa
+            return faLetterName.chordTone(with: accidental)
+        case .augmentedFourth:
+            let accidental = self.fa.addingSharp
+            return faLetterName.chordTone(with: accidental)
+        case .diminishedFifth:
+            let accidental = self.sol.addingFlat
+            return solLetterName.chordTone(with: accidental)
+        case .perfectFifth:
+            let accidental = self.sol
+            return solLetterName.chordTone(with: accidental)
+        case .augmentedFifth:
+            let accidental = self.sol.addingSharp
+            return solLetterName.chordTone(with: accidental)
+        case .minorSixth:
+            let accidental = self.la.addingFlat
+            return laLetterName.chordTone(with: accidental)
+        case .majorSixth:
+            let accidental = self.la
+            return laLetterName.chordTone(with: accidental)
+        case .diminishedSeventh:
+            let accidental = self.la // same as M6
+            return laLetterName.chordTone(with: accidental)
+        case .minorSeventh:
+            let accidental = self.ti.addingFlat
+            return tiLetterName.chordTone(with: accidental)
+        case .majorSeventh:
+            let accidental = self.ti
+            return tiLetterName.chordTone(with: accidental)
+        }
+    }
+    
+    private var all: [Accidental] {
+        [self.do, self.re, self.mi, self.fa, self.sol, self.la, self.ti]
+    }
+    
+    /// more negative is flat, more positive is sharp
+    func preferredAccidentalStyle(in solfeges: [Interval]) -> Int {
+        return solfeges.reduce(0) { partialResult, solfege in
+            switch solfege {
+            case .unison:
+                return self.do.rawValue
+            case .augmentedUnison:
+                return self.do.rawValue + 1
+            case .minorSecond:
+                return self.re.rawValue - 1
+            case .majorSecond:
+                return self.re.rawValue
+            case .augmentedSecond:
+                return self.re.rawValue + 1
+            case .minorThird:
+                return self.mi.rawValue - 1
+            case .majorThird:
+                return self.mi.rawValue
+            case .perfectFouth:
+                return self.fa.rawValue
+            case .augmentedFourth:
+                return self.fa.rawValue + 1
+            case .diminishedFifth:
+                return self.sol.rawValue - 1
+            case .perfectFifth:
+                return self.sol.rawValue
+            case .augmentedFifth:
+                return self.sol.rawValue + 1
+            case .minorSixth:
+                return self.la.rawValue - 1
+            case .majorSixth:
+                return self.la.rawValue
+            case .diminishedSeventh:
+                return self.la.rawValue + 1
+            case .minorSeventh:
+                return self.ti.rawValue - 1
+            case .majorSeventh:
+                return self.ti.rawValue
+            }
+        }
+    }
+    
+    var preferredAccidentalStyle: AccidentalStyle {
+        let accidentalPreference = all.reduce(0) { $0 + $1.rawValue}
+        if accidentalPreference > 0 {
+            return .sharp
+        } else if accidentalPreference < 0 {
+            return .flat
+        } else {
+            return .natural
+        }
+    }
+    
+    static let C = Scale(root: .C, do: .natural,
+                         re: .natural,
+                         mi: .natural,
+                         fa: .natural,
+                         sol: .natural,
+                         la: .natural,
+                         ti: .natural)
+    static let Csharp = Scale(root: .Csharp, do: .sharp,
+                          re: .sharp,
+                          mi: .sharp,
+                          fa: .sharp,
+                          sol: .sharp,
+                          la: .sharp,
+                          ti: .sharp)
+    static let Db = Scale(root: .Db, do: .flat,
+                          re: .flat,
+                          mi: .natural,
+                          fa: .flat,
+                          sol: .flat,
+                          la: .flat,
+                          ti: .natural)
+    static let D = Scale(root: .D, do: .natural,
+                         re: .natural,
+                         mi: .sharp,
+                         fa: .natural,
+                         sol: .natural,
+                         la: .natural,
+                         ti: .sharp)
+    static let Dsharp = Scale(root: .Dsharp, do: .sharp,
+                          re: .sharp,
+                          mi: .doubleSharp,
+                          fa: .sharp,
+                          sol: .sharp,
+                          la: .sharp,
+                          ti: .doubleSharp)
+    static let Eb = Scale(root: .Eb, do: .flat,
+                          re: .natural,
+                          mi: .natural,
+                          fa: .flat,
+                          sol: .flat,
+                          la: .natural,
+                          ti: .natural)
+    static let E = Scale(root: .E, do: .natural,
+                         re: .sharp,
+                         mi: .sharp,
+                         fa: .natural,
+                         sol: .natural,
+                         la: .sharp,
+                         ti: .sharp)
+    static let F = Scale(root: .F, do: .natural,
+                         re: .natural,
+                         mi: .natural,
+                         fa: .flat,
+                         sol: .natural,
+                         la: .natural,
+                         ti: .natural)
+    static let Fsharp = Scale(root: .Fsharp, do: .sharp,
+                          re: .sharp,
+                          mi: .sharp,
+                          fa: .natural,
+                          sol: .sharp,
+                          la: .sharp,
+                          ti: .sharp)
+    static let Gb = Scale(root: .Gb, do: .flat,
+                          re: .flat,
+                          mi: .flat,
+                          fa: .flat,
+                          sol: .flat,
+                          la: .flat,
+                          ti: .natural)
+    static let G = Scale(root: .G, do: .natural,
+                         re: .natural,
+                         mi: .natural,
+                         fa: .natural,
+                         sol: .natural,
+                         la: .natural,
+                         ti: .sharp)
+    static let Gsharp = Scale(root: .Gsharp, do: .sharp,
+                          re: .sharp,
+                          mi: .sharp,
+                          fa: .sharp,
+                          sol: .sharp,
+                          la: .sharp,
+                          ti: .doubleSharp)
+    static let Ab = Scale(root: .Ab, do: .flat,
+                          re: .flat,
+                          mi: .natural,
+                          fa: .flat,
+                          sol: .flat,
+                          la: .natural,
+                          ti: .natural)
+    static let A = Scale(root: .A, do: .natural,
+                         re: .natural,
+                         mi: .sharp,
+                         fa: .natural,
+                         sol: .natural,
+                         la: .sharp,
+                         ti: .sharp)
+    static let Asharp = Scale(root: .Asharp, do: .sharp,
+                          re: .sharp,
+                          mi: .doubleSharp,
+                          fa: .sharp,
+                          sol: .sharp,
+                          la: .doubleSharp,
+                          ti: .doubleSharp)
+    static let Bb = Scale(root: .Bb, do: .flat,
+                          re: .natural,
+                          mi: .natural,
+                          fa: .flat,
+                          sol: .natural,
+                          la: .natural,
+                          ti: .natural)
+    static let B = Scale(root: .B, do: .natural,
+                          re: .sharp,
+                          mi: .sharp,
+                          fa: .natural,
+                          sol: .sharp,
+                          la: .sharp,
+                          ti: .sharp)
+}

@@ -11,7 +11,7 @@ struct Note {
     let pitch: Pitch
     var midiNoteNumber: Int { self.pitch.midiNote }
     var pitchClass: Int { self.pitch.pitchClass }
-    let accidentalStyle: AccidentalStyle = .none
+    let accidentalStyle: AccidentalStyle = .natural
     var octave: Int {
         return Int(midiNoteNumber) / 12
     }
@@ -49,7 +49,7 @@ struct Note {
             case 11: return .B
             default: return .C
             }
-        case .none:
+        case .natural:
             switch self.pitchClass {
             case 0: return .C
             case 1: return .C
@@ -103,46 +103,6 @@ struct Note {
             return 1
         case nil:
             return 0
-        }
-    }
-}
-
-enum NoteName: Int {
-    case C, D, E, F, G, A, B
-    var trebleClefPosition: Int {
-        switch self {
-        case .C:
-            return 0
-        case .D:
-            return 1
-        case .E:
-            return 2
-        case .F:
-            return 3
-        case .G:
-            return 4
-        case .A:
-            return 5
-        case .B:
-            return 6
-        }
-    }
-    var bassClefPosition: Int {
-        switch self {
-        case .C:
-            return -7
-        case .D:
-            return -6
-        case .E:
-            return -5
-        case .F:
-            return -4
-        case .G:
-            return -3
-        case .A:
-            return -2
-        case .B:
-            return -1
         }
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UpperExtension {
+enum OLDUpperExtension {
     case minorNine, nine, augmentedNine, eleven, sharpEleven, minorThirteen, thirteen, augmentedThirteen
     var pitchClass: Int {
         switch self {
@@ -32,4 +32,31 @@ enum UpperExtension {
     func transposed(to root: Pitch) -> Int {
         return self.pitchClass + root.pitchClass
     }
+}
+
+enum UpperExtension {
+    case minorNine, nine, augmentedNine, eleven, sharpEleven, minorThirteen, thirteen, augmentedThirteen
+    var pitchClass: Interval {
+        switch self {
+        case .minorNine:
+            return .minorSecond
+        case .nine:
+            return .majorSecond
+        case .augmentedNine:
+            return .augmentedSecond
+        case .eleven:
+            return .perfectFouth
+        case .sharpEleven:
+            return .augmentedFourth
+        case .minorThirteen:
+            return .minorSixth
+        case .thirteen:
+            return .majorSixth
+        case .augmentedThirteen:
+            return .minorSeventh
+        }
+    }
+//    func transposed(to root: Pitch) -> Int {
+//        return self.pitchClass + root.pitchClass
+//    }
 }

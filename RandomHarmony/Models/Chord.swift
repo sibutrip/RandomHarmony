@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct HarmonyChord {
+struct Chord {
     let upperVoices: [Pitch]
     let root: Pitch // root note
     
-    func next(root: Int, triad: TriadQuality, seventh: SeventhQuality? = nil, upperExtensions: [UpperExtension]? = nil) -> HarmonyChord {
+    func next(root: Int, triad: OLDTriadQuality, seventh: OLDSeventhQuality? = nil, upperExtensions: [OLDUpperExtension]? = nil) -> Chord {
         let root = Pitch(root)
         let remainingNotes = (triad.transposed(to: root)
         + [(seventh?.transposed(to: root))]
@@ -54,10 +54,21 @@ struct HarmonyChord {
             let closestNote = closestDistancesAndNotes.1.first!
             closestNotes.append(closestNote)
         }
-        return HarmonyChord(root: root.midiNote, upperVoices: closestNotes)
+        return Chord(root: root.midiNote, upperVoices: closestNotes)
     }
-    init(root: Int, upperVoices: [Int]) {
-        self.upperVoices = upperVoices.map { Pitch($0) }
+    
+    private init(root: Int, upperVoices: [Int]) {
         self.root = Pitch(root)
+        self.upperVoices = upperVoices.map { Pitch($0) }
+    }
+    
+    init(root: Int, triad: OLDTriadQuality, seventh: OLDSeventhQuality? = nil, upperExtensions: [OLDUpperExtension]? = nil) {
+        let root = Pitch(root)
+        self.root = root
+        let remainingNotes = (triad.transposed(to: root)
+        + [(seventh?.transposed(to: root))]
+        + (upperExtensions?.map { $0.transposed(to: root)} ?? []))
+            .compactMap { $0 }
+        self.upperVoices = remainingNotes.map { Pitch($0) }
     }
 }

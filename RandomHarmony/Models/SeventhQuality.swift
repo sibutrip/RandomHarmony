@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SeventhQuality {
+enum OLDSeventhQuality {
     case major, minor, diminished
     var pitchClass: Int {
         switch self {
@@ -22,4 +22,21 @@ enum SeventhQuality {
     func transposed(to root: Pitch) -> Int {
         return self.pitchClass + root.pitchClass
     }
+}
+
+enum SeventhQuality {
+    case major, minor, diminished
+    var pitchClass: Interval {
+        switch self {
+        case .major:
+            return .majorSeventh
+        case .minor:
+            return .minorSeventh
+        case .diminished:
+            return .majorSixth // fudging because solfege for this is ehhh
+        }
+    }
+//    func transposed(to root: Pitch) -> Int {
+//        return self.pitchClass + root.pitchClass
+//    }
 }

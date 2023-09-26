@@ -19,7 +19,7 @@ struct LedgerLineView: View {
         case .bass:
             return spaceHeight * 5
         case .middleC, .none:
-            return 0
+            return -spaceHeight * 3.87
         }
     }
     var offsetBetweenLedgerLines: CGFloat {

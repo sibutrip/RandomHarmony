@@ -22,7 +22,7 @@ struct NoteRow: View {
         HStack {
             Spacer()
                 .frame(width: staffHeight)
-            ForEach([20,21,22,23,24,25,26,27,28,29,81,82,84,85,87,89,90], id: \.self) { index in
+            ForEach([60], id: \.self) { index in
                 NoteView(note: Note(pitch: Pitch(index)))
                 Spacer()
             }
