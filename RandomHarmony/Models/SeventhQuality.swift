@@ -33,7 +33,7 @@ enum SeventhQuality: String, CaseIterable {
         case .minor:
             return .minorSeventh
         case .diminished:
-            return .majorSixth // fudging because solfege for this is ehhh
+            return .diminishedSeventh
         }
     }
 }

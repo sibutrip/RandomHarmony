@@ -31,6 +31,9 @@
 		749C49A32AB77AD1005A1533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749C49A22AB77AD1005A1533 /* Assets.xcassets */; };
 		749C49A62AB77AD1005A1533 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749C49A52AB77AD1005A1533 /* Preview Assets.xcassets */; };
 		749C49AD2AB77AEC005A1533 /* HarmonyVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */; };
+		74AF30762AC4803900E8893C /* IntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF30752AC4803900E8893C /* IntervalType.swift */; };
+		74AF30782AC4805400E8893C /* FixedSolfege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF30772AC4805400E8893C /* FixedSolfege.swift */; };
+		74AF307B2AC4807C00E8893C /* AccidentalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +62,9 @@
 		749C49A22AB77AD1005A1533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		749C49A52AB77AD1005A1533 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyVm.swift; sourceTree = "<group>"; };
+		74AF30752AC4803900E8893C /* IntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalType.swift; sourceTree = "<group>"; };
+		74AF30772AC4805400E8893C /* FixedSolfege.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedSolfege.swift; sourceTree = "<group>"; };
+		74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +87,8 @@
 				7457C3F62ABCCB2600AC22E5 /* NoteName.swift */,
 				7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */,
 				74228BDD2AC1FF6600091B19 /* Scale.swift */,
-				74228BDF2AC2005600091B19 /* Interval.swift */,
-				741BD3132AB9E44700E818E8 /* Accidental.swift */,
+				74AF307C2AC4808100E8893C /* Accidentals */,
+				74AF30792AC4806300E8893C /* Intervals */,
 				7493C4CA2AC3797D00DF2C37 /* NewChord.swift */,
 				741BD3112AB9C85200E818E8 /* Chord.swift */,
 				741BD30D2AB9C83000E818E8 /* TriadQuality.swift */,
@@ -133,6 +139,25 @@
 				749C49A52AB77AD1005A1533 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		74AF30792AC4806300E8893C /* Intervals */ = {
+			isa = PBXGroup;
+			children = (
+				74228BDF2AC2005600091B19 /* Interval.swift */,
+				74AF30772AC4805400E8893C /* FixedSolfege.swift */,
+				74AF30752AC4803900E8893C /* IntervalType.swift */,
+			);
+			path = Intervals;
+			sourceTree = "<group>";
+		};
+		74AF307C2AC4808100E8893C /* Accidentals */ = {
+			isa = PBXGroup;
+			children = (
+				741BD3132AB9E44700E818E8 /* Accidental.swift */,
+				74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */,
+			);
+			path = Accidentals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +236,7 @@
 			files = (
 				7457C3F12ABC873E00AC22E5 /* LedgerLineView.swift in Sources */,
 				741BD30C2AB9C82100E818E8 /* UpperExtension.swift in Sources */,
+				74AF30782AC4805400E8893C /* FixedSolfege.swift in Sources */,
 				74228BE02AC2005600091B19 /* Interval.swift in Sources */,
 				741BD3142AB9E44700E818E8 /* Accidental.swift in Sources */,
 				741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */,
@@ -221,8 +247,10 @@
 				7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */,
 				749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */,
 				7457C3F32ABC88D300AC22E5 /* LedgerLine.swift in Sources */,
+				74AF30762AC4803900E8893C /* IntervalType.swift in Sources */,
 				749C49AD2AB77AEC005A1533 /* HarmonyVm.swift in Sources */,
 				741BD3162AB9E46A00E818E8 /* Pitch.swift in Sources */,
+				74AF307B2AC4807C00E8893C /* AccidentalStyle.swift in Sources */,
 				741BD31A2ABA428F00E818E8 /* NoteRow.swift in Sources */,
 				741BD3182AB9F9CF00E818E8 /* StaffRow.swift in Sources */,
 				743CC5012ABB7D3700E3E46E /* Note.swift in Sources */,

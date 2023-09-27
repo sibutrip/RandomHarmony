@@ -73,20 +73,20 @@ enum NoteName: Int {
         case .C:
             switch accidental {
             case .doubleFlat:
-                return .Bb
+                return .Cbb
             case .flat:
-                return .B
+                return .Cb
             case .natural:
                 return .C
             case .sharp:
                 return .Csharp
             case .doubleSharp:
-                return .D
+                return .CdoubleSharp
             }
         case .D:
             switch accidental {
             case .doubleFlat:
-                return .C
+                return .Dbb
             case .flat:
                 return .Db
             case .natural:
@@ -94,38 +94,38 @@ enum NoteName: Int {
             case .sharp:
                 return .Dsharp
             case .doubleSharp:
-                return .E
+                return .DdoubleSharp
             }
         case .E:
             switch accidental {
             case .doubleFlat:
-                return .D
+                return .Ebb
             case .flat:
                 return .Eb
             case .natural:
                 return .E
             case .sharp:
-                return .F
+                return .Esharp
             case .doubleSharp:
-                return .Fsharp
+                return .EdoubleSharp
             }
         case .F:
             switch accidental {
             case .doubleFlat:
-                return .Eb
+                return .Fbb
             case .flat:
-                return .E
+                return .Fb
             case .natural:
                 return .F
             case .sharp:
                 return .Fsharp
             case .doubleSharp:
-                return .G
+                return .FdoubleSharp
             }
         case .G:
             switch accidental {
             case .doubleFlat:
-                return .F
+                return .Gbb
             case .flat:
                 return .Gb
             case .natural:
@@ -133,12 +133,12 @@ enum NoteName: Int {
             case .sharp:
                 return .Gsharp
             case .doubleSharp:
-                return .A
+                return .GdoubleSharp
             }
         case .A:
             switch accidental {
             case .doubleFlat:
-                return .G
+                return .Abb
             case .flat:
                 return .Ab
             case .natural:
@@ -146,20 +146,20 @@ enum NoteName: Int {
             case .sharp:
                 return .Asharp
             case .doubleSharp:
-                return .B
+                return .AdoubleSharp
             }
         case .B:
             switch accidental {
             case .doubleFlat:
-                return .A
+                return .Bbb
             case .flat:
                 return .Bb
             case .natural:
                 return .B
             case .sharp:
-                return .C
+                return .Bsharp
             case .doubleSharp:
-                return .Csharp
+                return .BdoubleSharp
             }
         }
     }

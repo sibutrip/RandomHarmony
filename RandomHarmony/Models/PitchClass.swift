@@ -7,62 +7,62 @@
 
 import Foundation
 
-enum PitchClass {
+enum PitchClass: CaseIterable {
     case zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven
-    func fixedSolfege(as accidentalStyle: AccidentalStyle) -> FixedSolfege {
-        switch accidentalStyle {
-        case .sharp:
-            switch self {
-            case .one:
-                return .Csharp
-            case .three:
-                return .Dsharp
-            case .six:
-                return .Fsharp
-            case .eight:
-                return .Gsharp
-            case .ten:
-                return .Asharp
-            default:
-                break
-            }
-        case .flat:
-            switch self {
-            case .one:
-                return .Db
-            case .three:
-                return .Eb
-            case .six:
-                return .Gb
-            case .eight:
-                return .Ab
-            case .ten:
-                return .Bb
-            default:
-                break
-            }
-        case .natural:
-            switch self {
-            case .zero:
-                return .C
-            case .two:
-                return .D
-            case .four:
-                return .E
-            case .five:
-                return .F
-            case .seven:
-                return .G
-            case .nine:
-                return .A
-            case .eleven:
-                return .B
-            default:
-                break
-            }
-        }
-        fatalError("unexpected case")
-    }
+//    func fixedSolfege(as accidentalStyle: AccidentalStyle) -> FixedSolfege {
+//        switch accidentalStyle {
+//        case .sharp:
+//            switch self {
+//            case .one:
+//                return .Csharp
+//            case .three:
+//                return .Dsharp
+//            case .six:
+//                return .Fsharp
+//            case .eight:
+//                return .Gsharp
+//            case .ten:
+//                return .Asharp
+//            default:
+//                break
+//            }
+//        case .flat:
+//            switch self {
+//            case .one:
+//                return .Db
+//            case .three:
+//                return .Eb
+//            case .six:
+//                return .Gb
+//            case .eight:
+//                return .Ab
+//            case .ten:
+//                return .Bb
+//            default:
+//                break
+//            }
+//        case .natural:
+//            switch self {
+//            case .zero:
+//                return .C
+//            case .two:
+//                return .D
+//            case .four:
+//                return .E
+//            case .five:
+//                return .F
+//            case .seven:
+//                return .G
+//            case .nine:
+//                return .A
+//            case .eleven:
+//                return .B
+//            default:
+//                break
+//            }
+//        }
+//        fatalError("unexpected case")
+//    }
     
     var sharpScale: Scale {
         switch self {
@@ -122,20 +122,20 @@ enum PitchClass {
         }
     }
     
-    func chord(triad: TriadQuality, seventh: SeventhQuality? = nil, upperExtensions: [UpperExtension]? = nil) -> Chord {
+    func chord(triad: TriadQuality, seventh: SeventhQuality? = nil, upperExtensions: [UpperExtension]? = nil) -> (root: FixedSolfege, harmonies: Set<FixedSolfege>) {
         let solfeges = Set(
             (triad.pitchClasses
              + [(seventh?.pitchClass)]
              + (upperExtensions?.map { $0.pitchClass } ?? []))
         ) .compactMap { $0 }
         let scale = selectFlatOrSharpScale(in: solfeges)
-        return Chord(root: 1, triad: .diminished)
+        return scale.chord(triad: triad, seventh: seventh, upperExtensions: upperExtensions)
     }
     
     func selectFlatOrSharpScale(in solfeges: [Interval]) -> Scale {
-        let sharpPreference = self.sharpScale.preferredAccidentalStyle(in: solfeges)
-        let flatPreference = self.flatScale.preferredAccidentalStyle(in: solfeges)
-        
+        let sharpPreference = self.sharpScale.preferredAccidentalStyle(with: solfeges)
+        let flatPreference = self.flatScale.preferredAccidentalStyle(with: solfeges)
+        print("sharp preference: \(sharpPreference), flat preference: \(flatPreference)")
         /// select scale with less accidentals
         if abs(sharpPreference) < abs(flatPreference) {
             return self.sharpScale
@@ -143,12 +143,4 @@ enum PitchClass {
             return self.flatScale
         }
     }
-    
-//    private func triad(_ triad: TriadQuality) -> [Accidental] { }
-//    private func seventh(_ seventh: SeventhQuality) -> Accidental { }
-//    private func upperExtensions(_ upperExtensions: [UpperExtension]) -> [Accidental] { }
-    
-//    func scale(as accidentalStyle: AccidentalStyle) -> Scale {
-//        
-//    }
 }

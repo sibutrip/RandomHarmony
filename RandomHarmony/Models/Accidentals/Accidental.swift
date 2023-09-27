@@ -7,8 +7,22 @@
 
 import Foundation
 
-enum Accidental: Int {
+enum Accidental {
     case doubleFlat, flat, natural, sharp, doubleSharp
+    var rawValue: Int {
+        switch self {
+        case .doubleFlat:
+            return -2
+        case .flat:
+            return -1
+        case .natural:
+            return 0
+        case .sharp:
+            return 1
+        case .doubleSharp:
+            return 2
+        }
+    }
     var addingFlat: Accidental {
         switch self {
         case .doubleFlat:
@@ -23,6 +37,20 @@ enum Accidental: Int {
             return .sharp
         }
     }
+    
+    var addingTwoFlats: Accidental {
+        switch self {
+        case .doubleFlat, .flat:
+            fatalError("triple and quadruple flats not supported")
+        case .natural:
+            return .doubleFlat
+        case .sharp:
+            return .flat
+        case .doubleSharp:
+            return .natural
+        }
+    }
+    
     var addingSharp: Accidental {
         switch self {
         case .doubleFlat:
@@ -35,22 +63,6 @@ enum Accidental: Int {
             return .doubleSharp
         case .doubleSharp:
             fatalError("triple sharps not supported")
-        }
-    }
-}
-
-enum AccidentalStyle {
-    case sharp, flat, natural
-    static func from(_ accidental: Accidental) -> AccidentalStyle {
-        switch accidental {
-        case .doubleFlat, .doubleSharp:
-            fatalError("double flat/sharp roots not supported")
-        case .flat:
-            return .flat
-        case .natural:
-            return .natural
-        case .sharp:
-            return .sharp
         }
     }
 }

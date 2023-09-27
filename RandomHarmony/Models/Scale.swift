@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Scale {
+struct Scale: Hashable {
     let root: FixedSolfege
 
     let `do`: Accidental
@@ -118,8 +118,8 @@ struct Scale {
             let accidental = self.la
             return laLetterName.chordTone(with: accidental)
         case .diminishedSeventh:
-            let accidental = self.la // same as M6
-            return laLetterName.chordTone(with: accidental)
+            let accidental = self.ti.addingTwoFlats
+            return tiLetterName.chordTone(with: accidental)
         case .minorSeventh:
             let accidental = self.ti.addingFlat
             return tiLetterName.chordTone(with: accidental)
@@ -134,57 +134,60 @@ struct Scale {
     }
     
     /// more negative is flat, more positive is sharp
-    func preferredAccidentalStyle(in solfeges: [Interval]) -> Int {
-        return solfeges.reduce(0) { partialResult, solfege in
-            switch solfege {
+    func preferredAccidentalStyle(with solfeges: [Interval]) -> Int {
+        
+        let value = solfeges.reduce(0) { partialResult, solfege in
+            let noteValue = switch solfege {
             case .unison:
-                return self.do.rawValue
+                self.do.rawValue
             case .augmentedUnison:
-                return self.do.rawValue + 1
+                self.do.rawValue + 1
             case .minorSecond:
-                return self.re.rawValue - 1
+                self.re.rawValue - 1
             case .majorSecond:
-                return self.re.rawValue
+                self.re.rawValue
             case .augmentedSecond:
-                return self.re.rawValue + 1
+                self.re.rawValue + 1
             case .minorThird:
-                return self.mi.rawValue - 1
+                self.mi.rawValue - 1
             case .majorThird:
-                return self.mi.rawValue
+                self.mi.rawValue
             case .perfectFouth:
-                return self.fa.rawValue
+                self.fa.rawValue
             case .augmentedFourth:
-                return self.fa.rawValue + 1
+                self.fa.rawValue + 1
             case .diminishedFifth:
-                return self.sol.rawValue - 1
+                self.sol.rawValue - 1
             case .perfectFifth:
-                return self.sol.rawValue
+                self.sol.rawValue
             case .augmentedFifth:
-                return self.sol.rawValue + 1
+                self.sol.rawValue + 1
             case .minorSixth:
-                return self.la.rawValue - 1
+                self.la.rawValue - 1
             case .majorSixth:
-                return self.la.rawValue
+                self.la.rawValue
             case .diminishedSeventh:
-                return self.la.rawValue + 1
+                self.ti.rawValue - 2
             case .minorSeventh:
-                return self.ti.rawValue - 1
+                self.ti.rawValue - 1
             case .majorSeventh:
-                return self.ti.rawValue
+                self.ti.rawValue
             }
+            return noteValue + partialResult
         }
+        return value
     }
     
-    var preferredAccidentalStyle: AccidentalStyle {
-        let accidentalPreference = all.reduce(0) { $0 + $1.rawValue}
-        if accidentalPreference > 0 {
-            return .sharp
-        } else if accidentalPreference < 0 {
-            return .flat
-        } else {
-            return .natural
-        }
-    }
+//    var preferredAccidentalStyle: AccidentalStyle {
+//        let accidentalPreference = all.reduce(0) { $0 + $1.rawValue}
+//        if accidentalPreference > 0 {
+//            return .sharp
+//        } else if accidentalPreference < 0 {
+//            return .flat
+//        } else {
+//            return .natural
+//        }
+//    }
     
     static let C = Scale(root: .C, do: .natural,
                          re: .natural,
