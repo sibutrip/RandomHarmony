@@ -7,6 +7,20 @@
 
 import Foundation
 
+
+struct NewPitch {
+    let fixedSolfege: FixedSolfege
+    var octave: Int
+    var midiNoteNumber: Int {
+        fixedSolfege.pitchClass + 12 * octave
+    }
+    
+    init(fixedSolfege: FixedSolfege, octave: Int) {
+        self.fixedSolfege = fixedSolfege
+        self.octave = octave
+    }
+}
+
 struct Pitch {
     let midiNote: Int
     var pitchClass: Int {

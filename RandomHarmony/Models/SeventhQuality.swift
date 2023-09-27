@@ -24,7 +24,7 @@ enum OLDSeventhQuality {
     }
 }
 
-enum SeventhQuality {
+enum SeventhQuality: String, CaseIterable {
     case major, minor, diminished
     var pitchClass: Interval {
         switch self {
@@ -36,7 +36,4 @@ enum SeventhQuality {
             return .majorSixth // fudging because solfege for this is ehhh
         }
     }
-//    func transposed(to root: Pitch) -> Int {
-//        return self.pitchClass + root.pitchClass
-//    }
 }

@@ -29,12 +29,35 @@ struct Scale {
         self.ti = ti
     }
     
-    func chord(triad: TriadQuality, seventh: SeventhQuality? = nil, upperExtensions: [UpperExtension]? = nil) -> [FixedSolfege] {
+    static let all: [Scale] = [
+        Self.A,
+        Self.Ab,
+        Self.Asharp,
+        Self.Bb,
+        Self.B,
+        Self.C,
+        Self.Csharp,
+        Self.D,
+        Self.Db,
+        Self.Dsharp,
+        Self.Eb,
+        Self.E,
+        Self.F,
+        Self.Fsharp,
+        Self.Gb,
+        Self.G,
+        Self.Gsharp
+    ]
+    
+    public func chord(triad: TriadQuality, seventh: SeventhQuality? = nil, upperExtensions: [UpperExtension]? = nil) -> (root: FixedSolfege, harmonies: Set<FixedSolfege>) {
         let solfeges = (triad.pitchClasses
         + [(seventh?.pitchClass)]
         + (upperExtensions?.map { $0.pitchClass} ?? []))
             .compactMap { $0 }
-        return chordTones(from: solfeges)
+        let root = chordTone(from: .unison)
+        let harmonies = Set(chordTones(from: solfeges))
+            .filter { $0 != root}
+        return (root, harmonies)
     }
     
     func chordTones(from solfeges: [Interval]) -> [FixedSolfege] {

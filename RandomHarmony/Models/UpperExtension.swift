@@ -34,7 +34,7 @@ enum OLDUpperExtension {
     }
 }
 
-enum UpperExtension {
+enum UpperExtension: String, CaseIterable {
     case minorNine, nine, augmentedNine, eleven, sharpEleven, minorThirteen, thirteen, augmentedThirteen
     var pitchClass: Interval {
         switch self {
@@ -56,7 +56,4 @@ enum UpperExtension {
             return .minorSeventh
         }
     }
-//    func transposed(to root: Pitch) -> Int {
-//        return self.pitchClass + root.pitchClass
-//    }
 }

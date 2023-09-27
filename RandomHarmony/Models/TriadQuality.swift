@@ -28,7 +28,7 @@ enum OLDTriadQuality {
     }
 }
 
-enum TriadQuality {
+enum TriadQuality: String, CaseIterable {
     case major, minor, diminished, augmented, sus
     var pitchClasses: [Interval] {
         switch self {

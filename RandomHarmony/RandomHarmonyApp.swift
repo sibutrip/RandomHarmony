@@ -9,15 +9,28 @@ import SwiftUI
 
 @main
 struct RandomHarmonyApp: App {
-    let raw: String
+    @State var currentChord: NewChord
+    var raw: String {
+        return ([currentChord.root.fixedSolfege.rawValue] + currentChord.harmonies.map { $0.fixedSolfege.rawValue }).joined(separator: " ")
+    }
     var body: some Scene {
         WindowGroup {
-            Text(raw)
-//            ContentView()
+            Button {
+                let scale = Scale.all.randomElement()!
+                let triad = TriadQuality.allCases.randomElement()!
+                let seventh = SeventhQuality.allCases.randomElement()!
+                let chord = scale.chord(triad: triad, seventh: seventh)
+                currentChord = currentChord.next(root: chord.root, harmonies: chord.harmonies)
+                let root = (currentChord.root.fixedSolfege.rawValue,currentChord.root.octave)
+                let harmonies = currentChord.harmonies.map {($0.fixedSolfege.rawValue,$0.octave)}
+                print(root, harmonies, triad.rawValue, seventh.rawValue)
+            } label: {
+                Text(raw)
+            }
             
         }
     }
     init() {
-        raw = Scale.B.chord(triad: .sus, seventh: .diminished, upperExtensions: [.augmentedNine,.augmentedThirteen,.eleven,.minorNine,.thirteen,.nine]).map {$0.rawValue + " "}.joined()
+        _currentChord = .init(initialValue: NewChord(root: .C, harmonies: [.E,.G]))
     }
 }

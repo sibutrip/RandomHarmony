@@ -15,8 +15,37 @@ enum Interval {
     case unison, augmentedUnison, minorSecond, majorSecond, augmentedSecond, minorThird, majorThird, perfectFouth, augmentedFourth, diminishedFifth, perfectFifth, augmentedFifth, minorSixth, majorSixth, diminishedSeventh, minorSeventh, majorSeventh
 }
 
-enum FixedSolfege: String {
+enum FixedSolfege: String, CaseIterable {
     case C, Csharp, Db, D, Dsharp, Eb, E, F, Fsharp, Gb, G, Gsharp, Ab, A, Asharp, Bb, B
+    
+    var pitchClass: Int {
+        switch self {
+        case .C:
+            return 0
+        case .Csharp, .Db:
+            return 1
+        case .D:
+            return 2
+        case .Dsharp, .Eb:
+            return 3
+        case .E:
+            return 4
+        case .F:
+            return 5
+        case .Fsharp, .Gb:
+            return 6
+        case .G:
+            return 7
+        case .Gsharp, .Ab:
+            return 8
+        case .A:
+            return 9
+        case .Asharp, .Bb:
+            return 10
+        case .B:
+            return 11
+        }
+    }
     
     var noteName: NoteName {
         switch self {
@@ -36,10 +65,6 @@ enum FixedSolfege: String {
             return .B
         }
     }
-    
-//    static func from(noteName: NoteName, with accidentalStyle: AccidentalStyle) -> FixedSolfege {
-//        return FixedSolfege.A
-//    }
     
     static func from(root: PitchClass, with accidentalStyle: AccidentalStyle) -> FixedSolfege {
         switch accidentalStyle {

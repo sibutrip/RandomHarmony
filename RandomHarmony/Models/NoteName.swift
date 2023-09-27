@@ -68,7 +68,6 @@ enum NoteName: Int {
         }
     }
     
-    /// i think this is it!!!
     func chordTone(with accidental: Accidental) -> FixedSolfege {
         switch self {
         case .C:
@@ -163,103 +162,5 @@ enum NoteName: Int {
                 return .Csharp
             }
         }
-    }
-    
-//    private func adding(intervalTypeValue: Int) -> NoteName {
-//        let noteNameValue = (self.rawValue + intervalTypeValue) % 7
-//        switch noteNameValue {
-//        case 0:
-//            return .C
-//        case 1:
-//            return .D
-//        case 2:
-//            return .E
-//        case 3:
-//            return .F
-//        case 4:
-//            return .G
-//        case 5:
-//            return .A
-//        case 6:
-//            return .B
-//        default:
-//            fatalError("undefined note name distance. pitch should never be outside A-G.")
-//        }
-//    }
-    
-    
-    
-//    static func fromAccidental(_ accidental: Accidental) -> FixedSolfege {
-//        let accidentalStyle = AccidentalStyle.from(accidental)
-//        switch self {
-//        case .C:
-//            switch accidentalStyle {
-//            case .sharp:
-//                <#code#>
-//            case .flat:
-//                fatalError("c flat not supported")
-//            case .natural:
-//                <#code#>
-//            }
-//        case .D:
-//            switch accidentalStyle {
-//            case .sharp:
-//                <#code#>
-//            case .flat:
-//                <#code#>
-//            case .natural:
-//                <#code#>
-//            }
-//        case .E:
-//            switch accidentalStyle {
-//            case .sharp:
-//                fatalError("e sharp not supported")
-//            case .flat:
-//                <#code#>
-//            case .natural:
-//                <#code#>
-//            }
-//        case .F:
-//            switch accidentalStyle {
-//            case .sharp:
-//                <#code#>
-//            case .flat:
-//                fatalError("f flat not supported")
-//            case .natural:
-//                <#code#>
-//            }
-//        case .G:
-//            switch accidentalStyle {
-//            case .sharp:
-//                <#code#>
-//            case .flat:
-//                <#code#>
-//            case .natural:
-//                <#code#>
-//            }
-//        case .A:
-//            switch accidentalStyle {
-//            case .sharp:
-//                <#code#>
-//            case .flat:
-//                <#code#>
-//            case .natural:
-//                <#code#>
-//            }
-//        case .B:
-//            switch accidentalStyle {
-//            case .sharp:
-//                fatalError("b sharp not supported")
-//            case .flat:
-//                <#code#>
-//            case .natural:
-//                <#code#>
-//            }
-//        }
-//    }
-}
-extension NoteName {
-    static func += (lhs: inout Self, rhs: Self) {
-        
     }
 }

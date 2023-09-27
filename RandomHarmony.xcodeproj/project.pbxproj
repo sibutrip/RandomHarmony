@@ -25,6 +25,7 @@
 		7457C3F52ABC9B1000AC22E5 /* ChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F42ABC9B1000AC22E5 /* ChordView.swift */; };
 		7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F62ABCCB2600AC22E5 /* NoteName.swift */; };
 		7457C3F92ABCCB3B00AC22E5 /* PitchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */; };
+		7493C4CB2AC3797D00DF2C37 /* NewChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493C4CA2AC3797D00DF2C37 /* NewChord.swift */; };
 		749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */; };
 		749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C49A02AB77ACE005A1533 /* ContentView.swift */; };
 		749C49A32AB77AD1005A1533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749C49A22AB77AD1005A1533 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		7457C3F42ABC9B1000AC22E5 /* ChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordView.swift; sourceTree = "<group>"; };
 		7457C3F62ABCCB2600AC22E5 /* NoteName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteName.swift; sourceTree = "<group>"; };
 		7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchClass.swift; sourceTree = "<group>"; };
+		7493C4CA2AC3797D00DF2C37 /* NewChord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChord.swift; sourceTree = "<group>"; };
 		749C499B2AB77ACE005A1533 /* RandomHarmony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomHarmony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomHarmonyApp.swift; sourceTree = "<group>"; };
 		749C49A02AB77ACE005A1533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				74228BDD2AC1FF6600091B19 /* Scale.swift */,
 				74228BDF2AC2005600091B19 /* Interval.swift */,
 				741BD3132AB9E44700E818E8 /* Accidental.swift */,
+				7493C4CA2AC3797D00DF2C37 /* NewChord.swift */,
 				741BD3112AB9C85200E818E8 /* Chord.swift */,
 				741BD30D2AB9C83000E818E8 /* TriadQuality.swift */,
 				741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */,
@@ -213,6 +216,7 @@
 				741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */,
 				7457C3F52ABC9B1000AC22E5 /* ChordView.swift in Sources */,
 				741BD3122AB9C85200E818E8 /* Chord.swift in Sources */,
+				7493C4CB2AC3797D00DF2C37 /* NewChord.swift in Sources */,
 				7457C3F92ABCCB3B00AC22E5 /* PitchClass.swift in Sources */,
 				7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */,
 				749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */,
