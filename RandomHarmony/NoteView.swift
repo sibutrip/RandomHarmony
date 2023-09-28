@@ -36,6 +36,6 @@ struct NoteView: View {
 
 
 
-#Preview {
-    NoteView(note: Note(pitch: Pitch(30)))
-}
+//#Preview {
+//    NoteView(note: Note(pitch: Pitch(30)))
+//}

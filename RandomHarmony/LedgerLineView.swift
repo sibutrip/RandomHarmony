@@ -43,6 +43,6 @@ struct LedgerLineView: View {
     }
 }
 
-#Preview {
-    LedgerLineView(note: Note(pitch: Pitch(81)))
-}
+//#Preview {
+//    LedgerLineView(note: Note(pitch: Pitch(81)))
+//}

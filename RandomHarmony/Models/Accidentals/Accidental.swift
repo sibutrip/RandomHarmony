@@ -9,6 +9,39 @@ import Foundation
 
 enum Accidental {
     case doubleFlat, flat, natural, sharp, doubleSharp
+//    static let selectable: [Accidental] = [
+//        .flat,
+//        .natural,
+//        .sharp
+//    ]
+    var iconName: String {
+        switch self {
+        case .doubleFlat:
+            return "double.flat"
+        case .flat:
+            return "flat"
+        case .natural:
+            return "natural"
+        case .sharp:
+            return "sharp"
+        case .doubleSharp:
+            return "doubleSharp"
+        }
+    }
+    var iconScale: CGSize {
+        switch self {
+        case .doubleFlat:
+            return CGSize(width: 10, height: 17)
+        case .flat:
+            return CGSize(width: 6, height: 16)
+        case .natural:
+            return CGSize(width: 5, height: 19)
+        case .sharp:
+            return CGSize(width: 7, height: 19)
+        case .doubleSharp:
+            return CGSize(width: 7, height: 7)
+        }
+    }
     var rawValue: Int {
         switch self {
         case .doubleFlat:
@@ -64,5 +97,11 @@ enum Accidental {
         case .doubleSharp:
             fatalError("triple sharps not supported")
         }
+    }
+}
+
+extension Accidental: Identifiable {
+    var id: Int {
+        self.rawValue
     }
 }

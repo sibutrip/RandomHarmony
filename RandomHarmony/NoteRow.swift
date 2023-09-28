@@ -8,10 +8,6 @@
 import Foundation
 import SwiftUI
 
-struct Restaurant {
-    let id = UUID()
-}
-
 struct NoteRow: View {
     @Environment(\.staffHeight) var staffHeight
     @Environment(\.staffSpace) var staffSpace
@@ -22,10 +18,10 @@ struct NoteRow: View {
         HStack {
             Spacer()
                 .frame(width: staffHeight)
-            ForEach([60], id: \.self) { index in
-                NoteView(note: Note(pitch: Pitch(index)))
-                Spacer()
-            }
+//            ForEach([60], id: \.self) { index in
+//                NoteView(note: Note(pitch: Pitch(fixedSolfege: index, octave: <#Int#>)))
+//                Spacer()
+//            }
         }
     }
 }

@@ -7,8 +7,26 @@
 
 import Foundation
 
-enum NoteName: Int {
-    case C, D, E, F, G, A, B
+enum NoteName: Int, CaseIterable {
+    case A, B, C, D, E, F, G
+    var description: String {
+        switch self {
+        case .C:
+            return "C"
+        case .D:
+            return "D"
+        case .E:
+            return "E"
+        case .F:
+            return "F"
+        case .G:
+            return "G"
+        case .A:
+            return "A"
+        case .B:
+            return "B"
+        }
+    }
     var trebleClefPosition: Int {
         switch self {
         case .C:
@@ -162,5 +180,11 @@ enum NoteName: Int {
                 return .BdoubleSharp
             }
         }
+    }
+}
+
+extension NoteName: Identifiable {
+    var id: Int {
+        self.rawValue
     }
 }

@@ -12,7 +12,6 @@
 		741BD30C2AB9C82100E818E8 /* UpperExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30B2AB9C82100E818E8 /* UpperExtension.swift */; };
 		741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30D2AB9C83000E818E8 /* TriadQuality.swift */; };
 		741BD3102AB9C83E00E818E8 /* SeventhQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */; };
-		741BD3122AB9C85200E818E8 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3112AB9C85200E818E8 /* Chord.swift */; };
 		741BD3142AB9E44700E818E8 /* Accidental.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3132AB9E44700E818E8 /* Accidental.swift */; };
 		741BD3162AB9E46A00E818E8 /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3152AB9E46A00E818E8 /* Pitch.swift */; };
 		741BD3182AB9F9CF00E818E8 /* StaffRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741BD3172AB9F9CF00E818E8 /* StaffRow.swift */; };
@@ -25,7 +24,9 @@
 		7457C3F52ABC9B1000AC22E5 /* ChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F42ABC9B1000AC22E5 /* ChordView.swift */; };
 		7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F62ABCCB2600AC22E5 /* NoteName.swift */; };
 		7457C3F92ABCCB3B00AC22E5 /* PitchClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */; };
-		7493C4CB2AC3797D00DF2C37 /* NewChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493C4CA2AC3797D00DF2C37 /* NewChord.swift */; };
+		746DDCEF2AC6013C007694DE /* InputChord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DDCEE2AC6013C007694DE /* InputChord.swift */; };
+		746DDCF12AC61838007694DE /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DDCF02AC61838007694DE /* View+If.swift */; };
+		7493C4CB2AC3797D00DF2C37 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493C4CA2AC3797D00DF2C37 /* Chord.swift */; };
 		749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */; };
 		749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C49A02AB77ACE005A1533 /* ContentView.swift */; };
 		749C49A32AB77AD1005A1533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 749C49A22AB77AD1005A1533 /* Assets.xcassets */; };
@@ -34,6 +35,8 @@
 		74AF30762AC4803900E8893C /* IntervalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF30752AC4803900E8893C /* IntervalType.swift */; };
 		74AF30782AC4805400E8893C /* FixedSolfege.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF30772AC4805400E8893C /* FixedSolfege.swift */; };
 		74AF307B2AC4807C00E8893C /* AccidentalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */; };
+		74AF307E2AC4C46900E8893C /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307D2AC4C46900E8893C /* Keyboard.swift */; };
+		74AF30802AC4CCB900E8893C /* ChildSizeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +45,6 @@
 		741BD30B2AB9C82100E818E8 /* UpperExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperExtension.swift; sourceTree = "<group>"; };
 		741BD30D2AB9C83000E818E8 /* TriadQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriadQuality.swift; sourceTree = "<group>"; };
 		741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhQuality.swift; sourceTree = "<group>"; };
-		741BD3112AB9C85200E818E8 /* Chord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		741BD3132AB9E44700E818E8 /* Accidental.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accidental.swift; sourceTree = "<group>"; };
 		741BD3152AB9E46A00E818E8 /* Pitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pitch.swift; sourceTree = "<group>"; };
 		741BD3172AB9F9CF00E818E8 /* StaffRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffRow.swift; sourceTree = "<group>"; };
@@ -55,7 +57,9 @@
 		7457C3F42ABC9B1000AC22E5 /* ChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordView.swift; sourceTree = "<group>"; };
 		7457C3F62ABCCB2600AC22E5 /* NoteName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteName.swift; sourceTree = "<group>"; };
 		7457C3F82ABCCB3B00AC22E5 /* PitchClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchClass.swift; sourceTree = "<group>"; };
-		7493C4CA2AC3797D00DF2C37 /* NewChord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChord.swift; sourceTree = "<group>"; };
+		746DDCEE2AC6013C007694DE /* InputChord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputChord.swift; sourceTree = "<group>"; };
+		746DDCF02AC61838007694DE /* View+If.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+If.swift"; sourceTree = "<group>"; };
+		7493C4CA2AC3797D00DF2C37 /* Chord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		749C499B2AB77ACE005A1533 /* RandomHarmony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomHarmony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomHarmonyApp.swift; sourceTree = "<group>"; };
 		749C49A02AB77ACE005A1533 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +69,8 @@
 		74AF30752AC4803900E8893C /* IntervalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalType.swift; sourceTree = "<group>"; };
 		74AF30772AC4805400E8893C /* FixedSolfege.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedSolfege.swift; sourceTree = "<group>"; };
 		74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalStyle.swift; sourceTree = "<group>"; };
+		74AF307D2AC4C46900E8893C /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSizeReader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +95,8 @@
 				74228BDD2AC1FF6600091B19 /* Scale.swift */,
 				74AF307C2AC4808100E8893C /* Accidentals */,
 				74AF30792AC4806300E8893C /* Intervals */,
-				7493C4CA2AC3797D00DF2C37 /* NewChord.swift */,
-				741BD3112AB9C85200E818E8 /* Chord.swift */,
+				7493C4CA2AC3797D00DF2C37 /* Chord.swift */,
+				746DDCEE2AC6013C007694DE /* InputChord.swift */,
 				741BD30D2AB9C83000E818E8 /* TriadQuality.swift */,
 				741BD30F2AB9C83E00E818E8 /* SeventhQuality.swift */,
 				741BD30B2AB9C82100E818E8 /* UpperExtension.swift */,
@@ -125,6 +131,9 @@
 				74023AB42ABB30730071739B /* NoteView.swift */,
 				7457C3F02ABC873E00AC22E5 /* LedgerLineView.swift */,
 				749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */,
+				746DDCF02AC61838007694DE /* View+If.swift */,
+				74AF307D2AC4C46900E8893C /* Keyboard.swift */,
+				74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */,
 				740A120F2ABB22B5006F6180 /* EnvironmentValues.swift */,
 				74023AB62ABB42BE0071739B /* Models */,
 				749C49A22AB77AD1005A1533 /* Assets.xcassets */,
@@ -241,8 +250,7 @@
 				741BD3142AB9E44700E818E8 /* Accidental.swift in Sources */,
 				741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */,
 				7457C3F52ABC9B1000AC22E5 /* ChordView.swift in Sources */,
-				741BD3122AB9C85200E818E8 /* Chord.swift in Sources */,
-				7493C4CB2AC3797D00DF2C37 /* NewChord.swift in Sources */,
+				7493C4CB2AC3797D00DF2C37 /* Chord.swift in Sources */,
 				7457C3F92ABCCB3B00AC22E5 /* PitchClass.swift in Sources */,
 				7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */,
 				749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */,
@@ -252,11 +260,15 @@
 				741BD3162AB9E46A00E818E8 /* Pitch.swift in Sources */,
 				74AF307B2AC4807C00E8893C /* AccidentalStyle.swift in Sources */,
 				741BD31A2ABA428F00E818E8 /* NoteRow.swift in Sources */,
+				746DDCF12AC61838007694DE /* View+If.swift in Sources */,
 				741BD3182AB9F9CF00E818E8 /* StaffRow.swift in Sources */,
 				743CC5012ABB7D3700E3E46E /* Note.swift in Sources */,
 				740A12102ABB22B5006F6180 /* EnvironmentValues.swift in Sources */,
 				74023AB52ABB30730071739B /* NoteView.swift in Sources */,
 				749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */,
+				74AF30802AC4CCB900E8893C /* ChildSizeReader.swift in Sources */,
+				746DDCEF2AC6013C007694DE /* InputChord.swift in Sources */,
+				74AF307E2AC4C46900E8893C /* Keyboard.swift in Sources */,
 				74228BDE2AC1FF6600091B19 /* Scale.swift in Sources */,
 				741BD3102AB9C83E00E818E8 /* SeventhQuality.swift in Sources */,
 			);
