@@ -19,7 +19,3 @@ struct InputChord {
         return contents.compactMap { $0 }.joined(separator: " ")
     }
 }
-
-
-
-//        var contents = [noteName?.rawValue.description + accidental?.rawValue.description] + triadQuality?.rawValue.description + seventhQuality?.rawValue.description].compactMap { $0 } + upperExtensions.map { $0.rawValue.description }

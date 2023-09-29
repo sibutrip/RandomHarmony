@@ -29,6 +29,16 @@ enum UpperExtension: String, CaseIterable {
             return .minorSeventh
         }
     }
+    var scaleDegree: String {
+        switch self {
+        case .minorNine, .nine, .augmentedNine:
+            return 9.description
+        case .eleven, .sharpEleven:
+            return 11.description
+        case .minorThirteen, .thirteen, .augmentedThirteen:
+            return 13.description
+        }
+    }
 //    var description: some View {
 //        switch self {
 //        case .minorNine:

@@ -15,6 +15,7 @@ struct Keyboard: View {
     @Environment(\.colorScheme) private var colorScheme
     @State private var keypadSize = CGSize.zero
     @State private var selectedChord = InputChord()
+    
     var body: some View {
         ZStack {
             Color("list.background")
@@ -25,197 +26,152 @@ struct Keyboard: View {
                 Spacer()
                 HStack {
                     ForEach(NoteName.allCases) { noteName in
-                        let keyboardButtonStyle: KeyboardButtonStyle = selectedChord.noteName == noteName ? .selected : .notSelected
-                        ChildSizeReader(size: $keypadSize) {
-                            Button {
-                                selectedChord.noteName = noteName
-                            } label: {
-                                Text(noteName.description)
-                            }
-                        }
-                        .keyboardStyle(keyboardButtonStyle: keyboardButtonStyle)
+                        noteNameButton(noteName)
                     }
                 }
                 HStack {
-                    Spacer()
                     ForEach(AccidentalStyle.allCases) { accidental in
-                        Button {
-                            selectedChord.accidental = accidental
-                        } label: {Image(accidental.iconName)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: keypadSize.width,maxHeight:keypadSize.height)
-                                .keyboardStyle(keyboardButtonStyle: .notSelected)
-                        }
-                        
+                        accidentalButton(accidental)
                     }
-                    Text(TriadQuality.major.rawValue)
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    Text(TriadQuality.minor.rawValue)
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    Spacer()
+                    triadButton(.major)
+                    triadButton(.minor)
                 }
                 HStack {
-                    Text(TriadQuality.diminished.rawValue)
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    Text(TriadQuality.augmented.rawValue)
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    Text(TriadQuality.sus.rawValue)
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
+                    triadButton(.diminished)
+                    triadButton(.augmented)
+                    triadButton(.sus)
+                    
                 }
                 HStack {
-                    HStack(alignment: .top, spacing: 0) {
-                        Image("flat")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: keypadSize.width * 0.5)
-                        Text("7")
-                    }
-                    .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    Text("7")
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    HStack(spacing: 1) {
-                        Image("sharp")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: keypadSize.width * 0.5)
-                        Text("7")
-                    }
-                    .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    HStack(alignment: .top, spacing: 0) {
-                        Image("flat")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: keypadSize.width * 0.5)
-                        Text("9")
-                    }
-                    .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    Text("9")
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    HStack(spacing: 1) {
-                        Image("sharp")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: keypadSize.width * 0.5)
-                        Text("9")
-                    }
-                    .keyboardStyle(keyboardButtonStyle: .notSelected)
+                    seventhButton(.diminished)
+                    seventhButton(.minor)
+                    seventhButton(.major)
+                    upperExtensionsButton(.minorNine)
+                    upperExtensionsButton(.nine)
+                    upperExtensionsButton(.augmentedNine)
                 }
                 HStack {
-                    HStack(alignment: .top, spacing: 0) {
-                        Image("flat")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: keypadSize.width * 0.5)
-                        Text("13")
-                    }
-                    .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    Text("13")
-                        .keyboardStyle(keyboardButtonStyle: .notSelected)
-                    HStack(spacing: 1) {
-                        Image("sharp")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: keypadSize.width * 0.5)
-                        Text("13")
-                    }
-                    .keyboardStyle(keyboardButtonStyle: .notSelected)
+                    upperExtensionsButton(.minorThirteen)
+                    upperExtensionsButton(.thirteen)
+                    upperExtensionsButton(.augmentedThirteen)
                 }
             }
         }
     }
 }
 
-struct KeyboardStyle: ViewModifier {
-    let keyboardButtonStyle: KeyboardButtonStyle
-    let backgroundColor: Color
-    let textColor: Color
-    func body(content: Content) -> some View {
-        content
-            .font(.title2)
-            .padding(15)
-            .foregroundStyle(textColor)
-            .background {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundStyle(backgroundColor)
-                    .shadow(color: .black, radius: 1, x: 0, y: 0.3)
-            }
-            .animation(.easeInOut.speed(2), value: keyboardButtonStyle)
+extension Keyboard {
+    // MARK: - Keyboard Button Styles
+    func noteNameKeyboardStyle(for noteName: NoteName) -> KeyboardButtonStyle {
+        selectedChord.noteName == noteName ? .selected : .notSelected
     }
-    init(keyboardButtonStyle: KeyboardButtonStyle) {
-        let colorScheme = UIScreen.main.traitCollection.userInterfaceStyle
-        self.keyboardButtonStyle = keyboardButtonStyle
-        var textColor: Color {
-            switch colorScheme {
-            case .light, .unspecified:
-                switch keyboardButtonStyle {
-                case .notSelected:
-                    return Color.black
-                case .selected:
-                    return Color.white
-                case .disabled:
-                    return .gray
-                }
-            case .dark:
-                switch keyboardButtonStyle {
-                case .notSelected:
-                    return Color.white
-                case .selected:
-                    return Color.black
-                case .disabled:
-                    return .gray
-                }
-            @unknown default:
-                switch keyboardButtonStyle {
-                case .notSelected:
-                    return Color.black
-                case .selected:
-                    return Color.white
-                case .disabled:
-                    return .gray
-                }
+    
+    func accidentalKeyboardStyle(for accidental: AccidentalStyle) -> KeyboardButtonStyle {
+        guard selectedChord.noteName != nil else { return .disabled }
+        return selectedChord.accidental == accidental ? .selected : .notSelected
+    }
+    
+    func triadQualityKeyboardStyle(for triad: TriadQuality) -> KeyboardButtonStyle {
+        guard selectedChord.noteName != nil else { return .disabled }
+        return selectedChord.triadQuality == triad ? .selected : .notSelected
+    }
+    
+    func seventhQualityKeyboardStyle(for seventh: SeventhQuality) -> KeyboardButtonStyle {
+        guard selectedChord.noteName != nil else { return .disabled }
+        return selectedChord.seventhQuality == seventh ? .selected : .notSelected
+    }
+    
+    func upperExtensionKeyboardStyle(for upperExtension: UpperExtension) -> KeyboardButtonStyle {
+        guard selectedChord.noteName != nil else { return .disabled }
+        return (selectedChord.upperExtensions?.contains { $0 == upperExtension } ?? false) ? .selected : .notSelected
+    }
+    
+    // MARK: - Button Views
+    func noteNameButton(_ noteName: NoteName) -> some View {
+        ChildSizeReader(size: $keypadSize) {
+            Button {
+                selectedChord.noteName = noteName
+            } label: {
+                Text(noteName.description)
             }
         }
-        var backgroundColor: Color {
-            switch colorScheme {
-            case .light, .unspecified:
-                switch keyboardButtonStyle {
-                case .notSelected:
-                    return Color.white
-                case .selected:
-                    return Color.black
-                case .disabled:
-                    return .white
-                }
-            case .dark:
-                switch keyboardButtonStyle {
-                case .notSelected:
-                    return Color.black
-                case .selected:
-                    return Color.white
-                case .disabled:
-                    return .black
-                }
-                // default to light mode
-            @unknown default:
-                switch keyboardButtonStyle {
-                case .notSelected:
-                    return Color.black
-                case .selected:
-                    return Color.white
-                case .disabled:
-                    return .gray
-                }
+        .keyboardStyle(noteNameKeyboardStyle(for: noteName))
+    }
+    
+    func accidentalButton(_ accidental: AccidentalStyle) -> some View {
+        Button {
+            selectedChord.accidental = accidental
+        } label: {
+            Image(accidental.iconName)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: keypadSize.width,maxHeight:keypadSize.height)
+                .keyboardStyle(accidentalKeyboardStyle(for: accidental))
+        }
+    }
+    
+    func triadButton(_ triad: TriadQuality) -> some View {
+        Button {
+            selectedChord.triadQuality = triad
+        } label: {
+            Text(triad.rawValue)
+                .keyboardStyle(triadQualityKeyboardStyle(for: triad))
+        }
+    }
+    
+    func seventhButton(_ seventh: SeventhQuality) -> some View {
+        var accidentalText: String {
+            switch seventh {
+            case .major:
+                return "△7"
+            case .minor:
+                return "7"
+            case .diminished:
+                return "°7"
             }
         }
-        self.backgroundColor = backgroundColor
-        self.textColor = textColor
+        return Button {
+            selectedChord.seventhQuality = seventh
+        } label: {
+            Text(accidentalText)
+                .keyboardStyle(seventhQualityKeyboardStyle(for: seventh))
+        }
     }
-}
-
-extension View {
-    func keyboardStyle(keyboardButtonStyle: KeyboardButtonStyle) -> some View {
-        ModifiedContent(content: self, modifier: KeyboardStyle(keyboardButtonStyle: keyboardButtonStyle))
+    
+    func upperExtensionsButton(_ upperExtension: UpperExtension) -> some View {
+        var accidentalSymbol: String {
+            switch upperExtension {
+            case .minorNine, .minorThirteen:
+                return "flat"
+            case .nine, .eleven, .thirteen:
+                return ""
+            case .augmentedNine, .sharpEleven, .augmentedThirteen:
+                return "sharp"
+            }
+        }
+        return Button {
+            if var upperExtensions = selectedChord.upperExtensions {
+                if upperExtensions.contains(where: { $0 == upperExtension })  {
+                    selectedChord.upperExtensions = upperExtensions.filter { $0 != upperExtension }
+                } else {
+                    upperExtensions.append(upperExtension)
+                    selectedChord.upperExtensions = upperExtensions
+                }
+            } else {
+                selectedChord.upperExtensions = [upperExtension]
+            }
+        } label: {
+            HStack(spacing: 0) {
+                if ![UpperExtension.nine, UpperExtension.eleven, UpperExtension.thirteen].contains(where: { $0 == upperExtension}) {
+                    Image(accidentalSymbol)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: keypadSize.width * 0.5)
+                }
+                Text(upperExtension.scaleDegree)
+            }
+            .keyboardStyle(upperExtensionKeyboardStyle(for: upperExtension))
+        }
     }
 }
 
