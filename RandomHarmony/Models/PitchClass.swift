@@ -135,7 +135,7 @@ enum PitchClass: CaseIterable {
     func selectFlatOrSharpScale(in solfeges: [Interval]) -> Scale {
         let sharpPreference = self.sharpScale.preferredAccidentalStyle(with: solfeges)
         let flatPreference = self.flatScale.preferredAccidentalStyle(with: solfeges)
-        print("sharp preference: \(sharpPreference), flat preference: \(flatPreference)")
+//        print("sharp preference: \(sharpPreference), flat preference: \(flatPreference)")
         /// select scale with less accidentals
         if abs(sharpPreference) < abs(flatPreference) {
             return self.sharpScale

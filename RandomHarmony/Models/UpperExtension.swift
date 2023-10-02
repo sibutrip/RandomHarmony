@@ -98,24 +98,26 @@ enum UpperExtension: String, CaseIterable {
 }
 
 extension UpperExtension: Comparable {
+    
+    /// their display order in chord symbol
     private var order: Int {
         switch self {
         case .minorNine:
-            0
+            2
         case .nine:
             1
         case .augmentedNine:
-            2
+            0
         case .eleven:
-            3
-        case .sharpEleven:
             4
+        case .sharpEleven:
+            3
         case .minorThirteen:
-            5
+            7
         case .thirteen:
             6
         case .augmentedThirteen:
-            7
+            5
         }
     }
     static func < (lhs: UpperExtension, rhs: UpperExtension) -> Bool {

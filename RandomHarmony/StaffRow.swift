@@ -45,12 +45,12 @@ struct StaffRow: View {
     var grandStaffHeader: some View {
         VStack(spacing: 0) {
             Spacer()
-                .frame(height: spaceHeight * 2 + lineHeight)
+                .frame(height: spaceHeight * 3 + lineHeight * 2)
             Image("grand.staff")
                 .resizable()
-                .frame(height: staffHeight * 2 - (spaceHeight *  4 + lineHeight * 2)) // staff height minus the ledger lines
+                .frame(height: staffHeight * 2 - (spaceHeight * 2)) // staff height minus the ledger lines
             Spacer()
-                .frame(height: spaceHeight * 2 + lineHeight)
+                .frame(height: spaceHeight * 3 + lineHeight * 2)
         }
         .frame(width: (staffHeight * 2 - (spaceHeight * 4 + lineHeight * 2)) * 6/83)
     }
@@ -58,12 +58,12 @@ struct StaffRow: View {
     var bassClef: some View {
         VStack(spacing: 0) {
             Spacer()
-                .frame(height:spaceHeight * 2 + lineHeight * 2)
+                .frame(height:spaceHeight * 3.1 + lineHeight * 2)
             Image("bass.clef")
                 .resizable()
                 .frame(
-                    width: (staffHeight - (spaceHeight * 4 + lineHeight)) * (671 / 772) * 0.65,
-                    height: (staffHeight - (spaceHeight * 4 + lineHeight)) * 0.65
+                    width: (staffHeight - (spaceHeight * 4 + lineHeight)) * (671 / 772) * 0.7,
+                    height: (staffHeight - (spaceHeight * 4 + lineHeight)) * 0.7
                 )
         }
     }
@@ -71,12 +71,12 @@ struct StaffRow: View {
     var trebleClef: some View {
         VStack(spacing: 0) {
             Spacer()
-                .frame(height:spaceHeight * 1 + lineHeight * 2) // height is smaller than bass clef
+                .frame(height:spaceHeight * 1.4 + lineHeight * 2) // height is smaller than bass clef
             Image("treble.clef")
                 .resizable()
                 .frame(
-                    width: (staffHeight - (spaceHeight * 4 + lineHeight)) * (200 / 600) * 1.4,
-                    height: (staffHeight - (spaceHeight * 4 + lineHeight)) * 1.4
+                    width: (staffHeight - (spaceHeight * 4 + lineHeight)) * (200 / 600) * 1.7,
+                    height: (staffHeight - (spaceHeight * 4 + lineHeight)) * 1.7
                 )
         }
     }
@@ -109,8 +109,8 @@ struct StaffRow: View {
                 .foregroundColor(.white)
                 .frame(height: spaceHeight)
             Rectangle()
-                .foregroundColor(.black)
                 .frame(height: lineHeight)
+                .foregroundColor(.white)
             Rectangle()
                 .foregroundColor(.white)
                 .frame(height: spaceHeight)
@@ -120,11 +120,24 @@ struct StaffRow: View {
             Rectangle()
                 .foregroundColor(.white)
                 .frame(height: spaceHeight)
+            
             Rectangle()
                 .foregroundColor(.black)
                 .frame(height: lineHeight)
+            Rectangle()
+                .foregroundColor(.white)
+                .frame(height: spaceHeight)
             Group {
                 Rectangle()
+                    .foregroundColor(.black)
+                    .frame(height: lineHeight)
+                Rectangle()
+                    .foregroundColor(.white)
+                    .frame(height: spaceHeight)
+                Rectangle()
+                    .foregroundColor(.black)
+                    .frame(height: lineHeight)
+                Rectangle()
                     .foregroundColor(.white)
                     .frame(height: spaceHeight)
                 Rectangle()
@@ -134,8 +147,8 @@ struct StaffRow: View {
                     .foregroundColor(.white)
                     .frame(height: spaceHeight)
                 Rectangle()
-                    .foregroundColor(.black)
                     .frame(height: lineHeight)
+                    .foregroundColor(.white)
                 Rectangle()
                     .foregroundColor(.white)
                     .frame(height: spaceHeight)
@@ -152,7 +165,20 @@ struct StaffRow: View {
 
 struct StaffRow_Previews: PreviewProvider {
     static var previews: some View {
+        GeometryReader { geo in
+            let height: CGFloat = geo.size.height
+            let staveCount = CGFloat(6)
+            let staffRatio = min(0.6, staveCount * -0.013 + 0.7)
+            let staffSpace = (1 - staffRatio) * height / (staveCount + 1) * 1.8
+            let staffHeight = staffRatio * height / staveCount - (staffSpace / staveCount)
+            let lineHeight = staffHeight / 63
+            let spaceHeight = staffHeight / 9
             StaffRow()
+                .environment(\.staffHeight, staffHeight)
+                .environment(\.staffSpace, staffSpace)
+                .environment(\.lineHeight, lineHeight)
+                .environment(\.spaceHeight, spaceHeight)
+        }
     }
 }
 

@@ -91,17 +91,24 @@ extension Keyboard {
                 }
                 .fixedSize()
             }
-//            Text("\u{E879}")
-//                .font(.custom("Bravura", size: 20))
-//            Text("\u{E87A}")
-//                .font(.custom("Bravura", size: 20))
-            HStack {
-                ForEach(selectedChord.cleanedExtensions, id: \.self) { extensionGroup in
-                    VStack {
-                        ForEach(extensionGroup, id: \.self) { upperExtension in
-                            Text(upperExtension)
+            HStack(alignment: .center, spacing: 0) {
+                if selectedChord.upperExtensions?.count ?? 0 > 0 {
+                    Text("\u{E879}")
+                        .font(.custom("Bravura", size: 40))
+                        .offset(y: 20)
+                        .padding(.horizontal, 5)
+                    ForEach(selectedChord.cleanedExtensions, id: \.self) { extensionGroup in
+                        VStack {
+                            ForEach(extensionGroup, id: \.self) { upperExtension in
+                                Text(upperExtension)
+                            }
                         }
+                        .padding(.horizontal, 5)
                     }
+                    Text("\u{E87A}")
+                        .font(.custom("Bravura", size: 40))
+                        .offset(y: 20)
+                        .padding(.horizontal, 5)
                 }
             }
         }

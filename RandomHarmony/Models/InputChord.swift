@@ -80,8 +80,11 @@ struct InputChord {
         }
     }
     var cleanedExtensions: [[String]] {
-        guard var upperExtensions
-        else { return [] }
+        return upperExtensionBrace
+    }
+    
+    private var upperExtensionBrace: [[String]] {
+        guard var upperExtensions else { return [] }
         upperExtensions = upperExtensions.sorted()
         var cleanedExtensions = [[String](),[String](),[String]()]
         upperExtensions.enumerated().forEach { (index, upperExtension) in
