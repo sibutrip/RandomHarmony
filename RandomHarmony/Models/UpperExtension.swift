@@ -29,6 +29,39 @@ enum UpperExtension: String, CaseIterable {
             return .minorSeventh
         }
     }
+    
+    var description: String {
+        switch self {
+        case .minorNine:
+            "♭9"
+        case .nine:
+            "9"
+        case .augmentedNine:
+            "♯9"
+        case .eleven:
+            "11"
+        case .sharpEleven:
+            "♯11"
+        case .minorThirteen:
+            "♭13"
+        case .thirteen:
+            "13"
+        case .augmentedThirteen:
+            "♯13"
+        }
+    }
+    
+    var accidentalSymbol: String {
+        switch self {
+        case .minorNine, .minorThirteen:
+            return "flat"
+        case .nine, .eleven, .thirteen:
+            return ""
+        case .augmentedNine, .sharpEleven, .augmentedThirteen:
+            return "sharp"
+        }
+    }
+    
     var scaleDegree: String {
         switch self {
         case .minorNine, .nine, .augmentedNine:
@@ -62,4 +95,30 @@ enum UpperExtension: String, CaseIterable {
 //            <#code#>
 //        }
 //    }
+}
+
+extension UpperExtension: Comparable {
+    private var order: Int {
+        switch self {
+        case .minorNine:
+            0
+        case .nine:
+            1
+        case .augmentedNine:
+            2
+        case .eleven:
+            3
+        case .sharpEleven:
+            4
+        case .minorThirteen:
+            5
+        case .thirteen:
+            6
+        case .augmentedThirteen:
+            7
+        }
+    }
+    static func < (lhs: UpperExtension, rhs: UpperExtension) -> Bool {
+        lhs.order < rhs.order
+    }
 }

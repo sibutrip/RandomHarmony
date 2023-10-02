@@ -21,8 +21,7 @@ struct Keyboard: View {
             Color("list.background")
             VStack {
                 Spacer()
-                Text(selectedChord.raw)
-                    .foregroundStyle(Color.red)
+                selectedChordView
                 Spacer()
                 HStack {
                     ForEach(NoteName.allCases) { noteName in
@@ -40,7 +39,6 @@ struct Keyboard: View {
                     triadButton(.diminished)
                     triadButton(.augmented)
                     triadButton(.sus)
-                    
                 }
                 HStack {
                     seventhButton(.diminished)
@@ -51,6 +49,8 @@ struct Keyboard: View {
                     upperExtensionsButton(.augmentedNine)
                 }
                 HStack {
+                    upperExtensionsButton(.eleven)
+                    upperExtensionsButton(.sharpEleven)
                     upperExtensionsButton(.minorThirteen)
                     upperExtensionsButton(.thirteen)
                     upperExtensionsButton(.augmentedThirteen)
@@ -61,6 +61,51 @@ struct Keyboard: View {
 }
 
 extension Keyboard {
+    
+    @ViewBuilder
+    var selectedChordView: some View {
+        HStack(spacing: 0) {
+            Text(selectedChord.cleanedNote)
+            Text(selectedChord.cleanedAccidental)
+            if selectedChord.triadQuality == .diminished || selectedChord.triadQuality == .augmented {
+                VStack {
+                    Text(selectedChord.cleanedTriad)
+                    Spacer()
+                }
+                .fixedSize()
+            } else {
+                VStack {
+                    Spacer()
+                    Text(selectedChord.cleanedTriad)
+                        .font(.footnote)
+                }
+                .fixedSize()
+            }
+            if selectedChord.cleanedSeventh == "\u{E871}" {
+                Text(selectedChord.cleanedSeventh)
+                    .font(.custom("Bravura", size: 20))
+            } else {
+                VStack {
+                    Text(selectedChord.cleanedSeventh)
+                    Spacer()
+                }
+                .fixedSize()
+            }
+//            Text("\u{E879}")
+//                .font(.custom("Bravura", size: 20))
+//            Text("\u{E87A}")
+//                .font(.custom("Bravura", size: 20))
+            HStack {
+                ForEach(selectedChord.cleanedExtensions, id: \.self) { extensionGroup in
+                    VStack {
+                        ForEach(extensionGroup, id: \.self) { upperExtension in
+                            Text(upperExtension)
+                        }
+                    }
+                }
+            }
+        }
+    }
     // MARK: - Keyboard Button Styles
     func noteNameKeyboardStyle(for noteName: NoteName) -> KeyboardButtonStyle {
         selectedChord.noteName == noteName ? .selected : .notSelected
@@ -90,7 +135,11 @@ extension Keyboard {
     func noteNameButton(_ noteName: NoteName) -> some View {
         ChildSizeReader(size: $keypadSize) {
             Button {
-                selectedChord.noteName = noteName
+                if selectedChord.noteName != noteName {
+                    selectedChord.noteName = noteName
+                } else {
+                    selectedChord = InputChord()
+                }
             } label: {
                 Text(noteName.description)
             }
@@ -98,7 +147,9 @@ extension Keyboard {
         .keyboardStyle(noteNameKeyboardStyle(for: noteName))
     }
     
+    @ViewBuilder
     func accidentalButton(_ accidental: AccidentalStyle) -> some View {
+        let keyboardStyle = accidentalKeyboardStyle(for: accidental)
         Button {
             selectedChord.accidental = accidental
         } label: {
@@ -106,20 +157,26 @@ extension Keyboard {
                 .resizable()
                 .scaledToFit()
                 .frame(maxWidth: keypadSize.width,maxHeight:keypadSize.height)
-                .keyboardStyle(accidentalKeyboardStyle(for: accidental))
+                .keyboardStyle(keyboardStyle)
         }
+        .disabled(keyboardStyle == .disabled)
     }
     
+    @ViewBuilder
     func triadButton(_ triad: TriadQuality) -> some View {
+        let keyboardStyle = triadQualityKeyboardStyle(for: triad)
         Button {
             selectedChord.triadQuality = triad
         } label: {
             Text(triad.rawValue)
-                .keyboardStyle(triadQualityKeyboardStyle(for: triad))
+                .keyboardStyle(keyboardStyle)
         }
+        .disabled(keyboardStyle == .disabled)
     }
     
+    @ViewBuilder
     func seventhButton(_ seventh: SeventhQuality) -> some View {
+        let keyboardStyle = seventhQualityKeyboardStyle(for: seventh)
         var accidentalText: String {
             switch seventh {
             case .major:
@@ -130,26 +187,23 @@ extension Keyboard {
                 return "°7"
             }
         }
-        return Button {
-            selectedChord.seventhQuality = seventh
+        Button {
+            if selectedChord.seventhQuality == seventh {
+                selectedChord.seventhQuality = nil
+            } else {
+                selectedChord.seventhQuality = seventh
+            }
         } label: {
             Text(accidentalText)
-                .keyboardStyle(seventhQualityKeyboardStyle(for: seventh))
+                .keyboardStyle(keyboardStyle)
         }
+        .disabled(keyboardStyle == .disabled)
     }
     
+    @ViewBuilder
     func upperExtensionsButton(_ upperExtension: UpperExtension) -> some View {
-        var accidentalSymbol: String {
-            switch upperExtension {
-            case .minorNine, .minorThirteen:
-                return "flat"
-            case .nine, .eleven, .thirteen:
-                return ""
-            case .augmentedNine, .sharpEleven, .augmentedThirteen:
-                return "sharp"
-            }
-        }
-        return Button {
+        let keyboardStyle = upperExtensionKeyboardStyle(for: upperExtension)
+        Button {
             if var upperExtensions = selectedChord.upperExtensions {
                 if upperExtensions.contains(where: { $0 == upperExtension })  {
                     selectedChord.upperExtensions = upperExtensions.filter { $0 != upperExtension }
@@ -163,15 +217,16 @@ extension Keyboard {
         } label: {
             HStack(spacing: 0) {
                 if ![UpperExtension.nine, UpperExtension.eleven, UpperExtension.thirteen].contains(where: { $0 == upperExtension}) {
-                    Image(accidentalSymbol)
+                    Image(upperExtension.accidentalSymbol)
                         .resizable()
                         .scaledToFit()
                         .frame(width: keypadSize.width * 0.5)
                 }
                 Text(upperExtension.scaleDegree)
             }
-            .keyboardStyle(upperExtensionKeyboardStyle(for: upperExtension))
+            .keyboardStyle(keyboardStyle)
         }
+        .disabled(keyboardStyle == .disabled)
     }
 }
 
