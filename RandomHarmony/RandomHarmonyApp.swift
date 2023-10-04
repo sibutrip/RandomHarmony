@@ -11,7 +11,7 @@ import SwiftUI
 struct RandomHarmonyApp: App {
     var body: some Scene {
         WindowGroup {
-            Keyboard()
+            ContentView()
         }
     }
 }

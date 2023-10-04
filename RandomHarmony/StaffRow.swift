@@ -27,7 +27,13 @@ struct StaffRow: View {
     var body: some View {
         ZStack {
             grandStaff
-            NoteRow()
+//            NoteRow()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .C, octave: 4),
+                Pitch(fixedSolfege: .Db, octave: 4),
+                Pitch(fixedSolfege: .Db, octave: 2),
+                Pitch(fixedSolfege: .F, octave: 3)
+            ])
         }
     }
     
