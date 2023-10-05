@@ -45,6 +45,21 @@ enum FixedSolfege: String, CaseIterable {
         }
     }
     
+    var accidental: Accidental {
+        switch self {
+        case .Cbb,.Dbb,.Ebb,.Fbb,.Gbb,.Abb,.Bbb:
+            return .doubleSharp
+        case .CdoubleSharp,.DdoubleSharp,.EdoubleSharp,.FdoubleSharp,.GdoubleSharp,.AdoubleSharp,.BdoubleSharp:
+            return .doubleSharp
+        case .Csharp,.Dsharp,.Esharp,.Fsharp,.Gsharp,.Asharp,.Bsharp:
+            return .sharp
+        case .Cb, .Db,.Eb,.Fb,.Gb,.Ab,.Bb:
+            return .flat
+        case .C,.D,.E,.F,.G,.A,.B:
+            return .natural
+        }
+    }
+    
     var noteName: NoteName {
         switch self {
         case .Cbb, .Cb, .C, .Csharp, .CdoubleSharp:
@@ -161,6 +176,80 @@ enum FixedSolfege: String, CaseIterable {
             default:
                 fatalError("double sharp not found")
             }
+        }
+    }
+    var order: Int {
+        switch self {
+        case .Cbb:
+            0
+        case .Cb:
+            1
+        case .C:
+            2
+        case .Csharp:
+            3
+        case .CdoubleSharp:
+            4
+        case .Dbb:
+            5
+        case .Db:
+            6
+        case .D:
+            7
+        case .Dsharp:
+            8
+        case .DdoubleSharp:
+            9
+        case .Ebb:
+            10
+        case .Eb:
+            11
+        case .E:
+            12
+        case .Esharp:
+            13
+        case .EdoubleSharp:
+            14
+        case .Fbb:
+            15
+        case .Fb:
+            16
+        case .F:
+            17
+        case .Fsharp:
+            18
+        case .FdoubleSharp:
+            19
+        case .Gbb:
+            20
+        case .Gb:
+            21
+        case .G:
+            22
+        case .Gsharp:
+            23
+        case .GdoubleSharp:
+            24
+        case .Abb:
+            25
+        case .Ab:
+            26
+        case .A:
+            27
+        case .Asharp:
+            28
+        case .AdoubleSharp:
+            29
+        case .Bbb:
+            30
+        case .Bb:
+            31
+        case .B:
+            32
+        case .Bsharp:
+            33
+        case .BdoubleSharp:
+            34
         }
     }
 }

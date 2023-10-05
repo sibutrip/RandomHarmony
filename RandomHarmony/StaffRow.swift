@@ -29,10 +29,14 @@ struct StaffRow: View {
             grandStaff
 //            NoteRow()
             ChordView(pitches: [
-                Pitch(fixedSolfege: .C, octave: 4),
-                Pitch(fixedSolfege: .Db, octave: 4),
-                Pitch(fixedSolfege: .Db, octave: 2),
-                Pitch(fixedSolfege: .F, octave: 3)
+                Pitch(fixedSolfege: .F, octave: 3),
+                Pitch(fixedSolfege: .E, octave: 3),
+                Pitch(fixedSolfege: .G, octave: 4),
+                Pitch(fixedSolfege: .C, octave: 3),
+                Pitch(fixedSolfege: .B, octave: 2),
+                Pitch(fixedSolfege: .G, octave: 2),
+                Pitch(fixedSolfege: .F, octave: 2),
+                Pitch(fixedSolfege: .E, octave: 2)
             ])
         }
     }

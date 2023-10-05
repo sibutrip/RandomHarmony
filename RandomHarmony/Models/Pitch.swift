@@ -78,6 +78,16 @@ struct Pitch: Identifiable {
 /// view-related
 extension Pitch {
     
+    /// used to check if notes are adjacent on staff
+    var staffOrder: Int {
+        let noteOffset = (noteName.rawValue + 5) % 7
+        return noteOffset * octave
+    }
+    
+    var noteOrder: Int {
+        return fixedSolfege.order + (octave * 35)
+    }
+    
     var ledgerLine: LedgerLine? {
         if octave > 6 { fatalError("additional ledger lines not supported")}
         if octave == 6 {
@@ -109,23 +119,26 @@ extension Pitch {
         }
     }
     
-//    var ledgerLineCount: Int {
-//        switch ledgerLine {
-//        case .treble:
-//            //TODO: started note name at A instead of C. fix this
-//
-////            let numberOfLedgerLines = ((noteName.rawValue - 5) + (octave - 6) * 7 + 2) / 2
-////            return numberOfLedgerLines
-//            return staffPosition - 5
-//        case .bass:
-//            //TODO: started note name at A instead of C. fix this
-////            let numberOfLedgerLines = ((noteName.rawValue - 2) + (2 - octave) * 7 + 2) / 2
-////            return numberOfLedgerLines
-//            return -staffPosition - 5
-//        case .middleC:
-//            return 1
-//        case nil:
-//            return 0
-//        }
-//    }
+    func isAdjacentTo(otherPitch: Pitch) -> Bool {
+        /// adjacent B and C, separated by octave
+        if (self.octave + 1 == otherPitch.octave) {
+            if self.noteName == .B && otherPitch.noteName == .C {
+                return true
+            } else { return false }
+            
+            /// adjacent B and C, separated by octave
+        } else if (self.octave - 1 == otherPitch.octave) {
+            if self.noteName == .C && otherPitch.noteName == .B {
+                return true
+            } else { return false }
+            
+            /// same octave, adjacent note
+        } else if self.octave == otherPitch.octave {
+            if abs(self.noteName.rawValue - otherPitch.noteName.rawValue) == 1 {
+                return true
+            } else { return false }
+        } else {
+            return false
+        }
+    }
 }

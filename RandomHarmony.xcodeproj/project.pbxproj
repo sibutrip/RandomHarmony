@@ -40,6 +40,7 @@
 		74AF307B2AC4807C00E8893C /* AccidentalStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */; };
 		74AF307E2AC4C46900E8893C /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307D2AC4C46900E8893C /* Keyboard.swift */; };
 		74AF30802AC4CCB900E8893C /* ChildSizeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */; };
+		74D6DDEB2ACDDE25003A5D2E /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6DDEA2ACDDE25003A5D2E /* View+If.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalStyle.swift; sourceTree = "<group>"; };
 		74AF307D2AC4C46900E8893C /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSizeReader.swift; sourceTree = "<group>"; };
+		74D6DDEA2ACDDE25003A5D2E /* View+If.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+If.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				746DDCF22AC6206C007694DE /* KeyboardStyle.swift */,
 				74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */,
 				740A120F2ABB22B5006F6180 /* EnvironmentValues.swift */,
+				74D6DDEA2ACDDE25003A5D2E /* View+If.swift */,
 				74023AB62ABB42BE0071739B /* Models */,
 				749C49A22AB77AD1005A1533 /* Assets.xcassets */,
 				749C49A42AB77AD1005A1533 /* Preview Content */,
@@ -283,6 +286,7 @@
 				74AF30802AC4CCB900E8893C /* ChildSizeReader.swift in Sources */,
 				746DDCEF2AC6013C007694DE /* InputChord.swift in Sources */,
 				74AF307E2AC4C46900E8893C /* Keyboard.swift in Sources */,
+				74D6DDEB2ACDDE25003A5D2E /* View+If.swift in Sources */,
 				74228BDE2AC1FF6600091B19 /* Scale.swift in Sources */,
 				741BD3102AB9C83E00E818E8 /* SeventhQuality.swift in Sources */,
 			);

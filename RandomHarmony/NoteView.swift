@@ -16,10 +16,13 @@ struct NoteView: View {
     var body: some View {
         Image("whole.note")
             .resizable()
-            .frame(width: spaceHeight * (460 / 309), height: spaceHeight)
+            .frame(width: spaceHeight * 1.05 * (460 / 309), height: spaceHeight * 1.05)
             .offset(y: yOffset)
             .overlay {
                 LedgerLineView(pitch: pitch)
+            }
+            .onAppear {
+                let x = pitch.staffOrder
             }
     }
     var yOffset: CGFloat {
