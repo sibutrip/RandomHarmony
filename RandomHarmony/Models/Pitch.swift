@@ -81,7 +81,8 @@ extension Pitch {
     /// used to check if notes are adjacent on staff
     var staffOrder: Int {
         let noteOffset = (noteName.rawValue + 5) % 7
-        return noteOffset * octave
+//        return noteOffset * octave
+        return noteOffset + octave * 7
     }
     
     var noteOrder: Int {
@@ -119,22 +120,27 @@ extension Pitch {
         }
     }
     
-    func isAdjacentTo(otherPitch: Pitch) -> Bool {
+    func isAdjacentTo(previousPitch: Pitch) -> Bool {
         /// adjacent B and C, separated by octave
-        if (self.octave + 1 == otherPitch.octave) {
-            if self.noteName == .B && otherPitch.noteName == .C {
+        if (self.octave + 1 == previousPitch.octave) {
+            if self.noteName == .B && previousPitch.noteName == .C {
                 return true
             } else { return false }
             
             /// adjacent B and C, separated by octave
-        } else if (self.octave - 1 == otherPitch.octave) {
-            if self.noteName == .C && otherPitch.noteName == .B {
+        } else if (self.octave - 1 == previousPitch.octave) {
+            
+            /// if C is middle C, not a cluster
+            if self.octave == 4 { return false }
+                
+            if self.noteName == .C && previousPitch.noteName == .B {
                 return true
             } else { return false }
             
             /// same octave, adjacent note
-        } else if self.octave == otherPitch.octave {
-            if abs(self.noteName.rawValue - otherPitch.noteName.rawValue) == 1 {
+        } else if self.octave == previousPitch.octave {
+            let octaveAdjustedDistance = (self.noteName.rawValue - previousPitch.noteName.rawValue + 7) % 7
+            if abs(octaveAdjustedDistance) == 1 {
                 return true
             } else { return false }
         } else {
