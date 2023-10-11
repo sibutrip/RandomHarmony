@@ -19,42 +19,28 @@ enum Clef {
     }
 }
 
+enum DebugStaffRow {
+    case flatflat, flatsharp, sharpflat, sharpsharp
+}
+
 struct StaffRow: View {
     @Environment(\.staffHeight) var staffHeight
     @Environment(\.staffSpace) var staffSpace
     @Environment(\.lineHeight) var lineHeight
     @Environment(\.spaceHeight) var spaceHeight
+    let debugStaffRow: DebugStaffRow
     var body: some View {
         ZStack {
             grandStaff
-//            NoteRow()
-            HStack {
-                Spacer()
-                ChordView(pitches: [
-                    Pitch(fixedSolfege: .Gsharp, octave: 2),
-                    Pitch(fixedSolfege: .Fsharp, octave: 2)
-                ])
-                Spacer()
-                ChordView(pitches: [
-                    Pitch(fixedSolfege: .Asharp, octave: 2),
-                    Pitch(fixedSolfege: .Fsharp, octave: 2)
-                ])
-                Spacer()
-                ChordView(pitches: [
-                    Pitch(fixedSolfege: .Bsharp, octave: 2),
-                    Pitch(fixedSolfege: .Fsharp, octave: 2)
-                ])
-                Spacer()
-                ChordView(pitches: [
-                    Pitch(fixedSolfege: .Csharp, octave: 3),
-                    Pitch(fixedSolfege: .Fsharp, octave: 2)
-                ])
-                Spacer()
-                ChordView(pitches: [
-                    Pitch(fixedSolfege: .Dsharp, octave: 3),
-                    Pitch(fixedSolfege: .Fsharp, octave: 2)
-                ])
-                
+            switch debugStaffRow {
+            case .flatflat:
+                flatflat
+            case .flatsharp:
+                flatsharp
+            case .sharpflat:
+                sharpflat
+            case .sharpsharp:
+                sharpsharp
             }
         }
     }
@@ -189,6 +175,194 @@ struct StaffRow: View {
             }
         }
     }
+    var flatflat: some View {
+        HStack {
+            Group {
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Gb, octave: 2),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Ab, octave: 2),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Bb, octave: 2),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Cb, octave: 3),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Db, octave: 3),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+            }
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Eb, octave: 3),
+                Pitch(fixedSolfege: .Fb, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Fb, octave: 3),
+                Pitch(fixedSolfege: .Fb, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Gb, octave: 3),
+                Pitch(fixedSolfege: .Fb, octave: 2)
+            ])
+            Spacer()
+        }
+    }
+    var flatsharp: some View {
+        HStack {
+            Group {
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Gsharp, octave: 2),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Asharp, octave: 2),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Bsharp, octave: 2),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Csharp, octave: 3),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Dsharp, octave: 3),
+                    Pitch(fixedSolfege: .Fb, octave: 2)
+                ])
+            }
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Esharp, octave: 3),
+                Pitch(fixedSolfege: .Fb, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Fsharp, octave: 3),
+                Pitch(fixedSolfege: .Fb, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Gsharp, octave: 3),
+                Pitch(fixedSolfege: .Fb, octave: 2)
+            ])
+            Spacer()
+        }
+    }
+    var sharpflat: some View {
+        HStack {
+            Group {
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Gb, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Ab, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Bb, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Cb, octave: 3),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Db, octave: 3),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+            }
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Eb, octave: 3),
+                Pitch(fixedSolfege: .Fsharp, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Fb, octave: 3),
+                Pitch(fixedSolfege: .Fsharp, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Gb, octave: 3),
+                Pitch(fixedSolfege: .Fsharp, octave: 2)
+            ])
+            Spacer()
+        }
+    }
+    var sharpsharp: some View {
+        HStack {
+            Group {
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Gsharp, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Asharp, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Bsharp, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Csharp, octave: 3),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Dsharp, octave: 3),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+            }
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Esharp, octave: 3),
+                Pitch(fixedSolfege: .Fsharp, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Fsharp, octave: 3),
+                Pitch(fixedSolfege: .Fsharp, octave: 2)
+            ])
+            Spacer()
+            ChordView(pitches: [
+                Pitch(fixedSolfege: .Gsharp, octave: 3),
+                Pitch(fixedSolfege: .Fsharp, octave: 2)
+            ])
+            Spacer()
+        }
+    }
 }
 
 struct StaffRow_Previews: PreviewProvider {
@@ -201,7 +375,7 @@ struct StaffRow_Previews: PreviewProvider {
             let staffHeight = staffRatio * height / staveCount - (staffSpace / staveCount)
             let lineHeight = staffHeight / 63
             let spaceHeight = staffHeight / 9
-            StaffRow()
+            StaffRow(debugStaffRow: .flatflat)
                 .environment(\.staffHeight, staffHeight)
                 .environment(\.staffSpace, staffSpace)
                 .environment(\.lineHeight, lineHeight)

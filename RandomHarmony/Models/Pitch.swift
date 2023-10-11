@@ -149,6 +149,7 @@ extension Pitch {
     }
     
     func staffOffset(spaceHeight: CGFloat, lineHeight: CGFloat) -> CGFloat {
+        
         if self.octave >= 4 {
             let noteOffset = self.noteName.trebleClefPosition + 7 * (self.octave - 5)
             return -spaceHeight * 9 + -CGFloat(noteOffset) * (spaceHeight / 2 + lineHeight / 2)
