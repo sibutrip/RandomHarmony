@@ -21,8 +21,20 @@ struct ChordView: View {
     var clusterOffset: CGFloat { -spaceHeight * 1.3 }
     var containsCluster: Bool { return pitchFormats.contains { $0.isCluster } }
     
+    private var accidentalChordViewWidth: CGFloat {
+        accidentalFormats.last?.offset(multipliedBy: spaceHeight) ?? 0
+    }
+    private var lastAccidentalWidth: CGFloat {
+        accidentalFormats.last?.pitch.fixedSolfege.accidental.iconScale.width ?? 0
+    }
+    var chordViewWidth: CGFloat {
+        accidentalChordViewWidth + abs(clusterOffset) + lastAccidentalWidth
+    }
+    
     var body: some View {
-        ZStack {
+        ZStack(alignment: .trailing) {
+            Spacer()
+                .frame(width: chordViewWidth)
             ForEach(pitchFormats) { pitchFormat in
                 NoteView(pitch: pitchFormat.pitch)
                     .if(pitchFormat.isOffset) { noteView in

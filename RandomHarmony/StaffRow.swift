@@ -28,19 +28,34 @@ struct StaffRow: View {
         ZStack {
             grandStaff
 //            NoteRow()
-            ChordView(pitches: [
-                Pitch(fixedSolfege: .Bsharp, octave: 3),
-                Pitch(fixedSolfege: .Asharp, octave: 3),
-                Pitch(fixedSolfege: .Gsharp, octave: 3),
-                Pitch(fixedSolfege: .Fsharp, octave: 3),
-                Pitch(fixedSolfege: .Esharp, octave: 3),
-                Pitch(fixedSolfege: .Dsharp, octave: 3),
-                Pitch(fixedSolfege: .Csharp, octave: 3)
-//                Pitch(fixedSolfege: .B, octave: 2),
-//                Pitch(fixedSolfege: .G, octave: 2),
-//                Pitch(fixedSolfege: .F, octave: 2),
-//                Pitch(fixedSolfege: .E, octave: 2)
-            ])
+            HStack {
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Gsharp, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Asharp, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Bsharp, octave: 2),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Csharp, octave: 3),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                Spacer()
+                ChordView(pitches: [
+                    Pitch(fixedSolfege: .Dsharp, octave: 3),
+                    Pitch(fixedSolfege: .Fsharp, octave: 2)
+                ])
+                
+            }
         }
     }
     

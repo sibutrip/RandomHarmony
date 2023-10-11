@@ -38,7 +38,7 @@ extension ChordFormat {
             // (Int,[Pitch]) is (numberOfGoodDistances, sequence)
             let remainingPitchesPermutations = pitches.permutations()
             let remainingPitches = remainingPitchesPermutations
-                .reduce((numberOfGoodDistances: 0, pitches: [Pitch]())) { partialResult, pitches in
+                .reduce((numberOfGoodDistances: Int.min, pitches: [Pitch]())) { partialResult, pitches in
                     let numberOfGoodDistances = pitches.enumerated().map { index, pitch in
                         if index > 0 {
                             let lastPitch = index > 0 ? pitches[index - 1] : accidentalPitches.last
@@ -60,24 +60,39 @@ extension ChordFormat {
                 .pitches
             accidentalPitches += remainingPitches
             
+            var totalAccidentalOffset = Double()
+            var stackedAccidentals = [Pitch]()
             let accidentalChordFormats: [AccidentalChordFormat] = accidentalPitches.enumerated().map { index, accidentalPitch in
                 if index > 0 {
                     let previousAccidentalPitch = accidentalPitches[index - 1]
-                    let staffDistance = abs(accidentalPitch.staffOrder - previousAccidentalPitch.staffOrder)
+                    let closestPreviousAccidental = stackedAccidentals + [previousAccidentalPitch]
+                    let staffDistance = closestPreviousAccidental.reduce(Int.max) { lastDistance, pitch in
+                        let newDistance = abs(accidentalPitch.staffOrder - pitch.staffOrder)
+                        return min(lastDistance,newDistance)
+                    }
+                    if staffDistance >= 6 {
+                        stackedAccidentals.append(previousAccidentalPitch)
+                    }
                     let accidentalOffset = switch staffDistance {
                     case 0:
-                        1.5
-                    case 1...2:
-                        1.5
-                    case 3...5:
-                        0.5
-                    case 6...Int.max:
+                        fatalError("unison accidentals not handled yet")
+                    case 1:
+                        1.1
+                    case 2:
+                        1.0
+                    case 3:
+                        0.9
+                    case 4:
+                        0.7
+                    case 5...Int.max:
                         0.0
                     default:
                         1.5
                     }
-                    return AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: accidentalOffset)
+                    totalAccidentalOffset += accidentalOffset
+                    return AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: totalAccidentalOffset)
                 } else {
+                    totalAccidentalOffset += 1.5
                     return AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.5)
                 }
             }

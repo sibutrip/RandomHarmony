@@ -14,7 +14,7 @@ extension ChordFormat {
         var isCluster: Bool { clusterOrder != 0 }
         let clusterOrder: Int
         var accidental: Accidental { pitch.fixedSolfege.accidental }
-        var clusterCount: Int = 0
+        var clusterCount: Int = 0 // number of clusters in a segment
         var offsetOddNumberOverride = false
         var isOffset: Bool {
             // if not in a cluster, not offset
@@ -64,7 +64,7 @@ extension ChordFormat {
             /// if sequence ends in cluster. add cluster counter to last notes
             if clusterCounter != 0 {
                 var offsetOddNumberOverride = false
-                if pitchChordFormats.count > 2 {
+                if pitchChordFormats.count >= 2 {
                     let lastPitch = pitchChordFormats[pitchChordFormats.count - 1].pitch
                     let secondToLastPitch = pitchChordFormats[pitchChordFormats.count - 2].pitch
                     if (lastPitch.noteName.rawValue - secondToLastPitch.noteName.rawValue + 7) % 7 == 2 {
