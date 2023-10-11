@@ -41,6 +41,10 @@
 		74AF307E2AC4C46900E8893C /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307D2AC4C46900E8893C /* Keyboard.swift */; };
 		74AF30802AC4CCB900E8893C /* ChildSizeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */; };
 		74C9AEB52AD0356000BD7C3C /* ChordFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9AEB42AD0356000BD7C3C /* ChordFormat.swift */; };
+		74C9AEB72AD0494F00BD7C3C /* AccidentalChordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9AEB62AD0494F00BD7C3C /* AccidentalChordView.swift */; };
+		74C9AEB92AD063D900BD7C3C /* AccidentalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9AEB82AD063D900BD7C3C /* AccidentalView.swift */; };
+		74C9AEBC2AD08E7600BD7C3C /* PitchChordFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9AEBB2AD08E7600BD7C3C /* PitchChordFormat.swift */; };
+		74C9AEBE2AD08E9F00BD7C3C /* AccidentalChordFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74C9AEBD2AD08E9F00BD7C3C /* AccidentalChordFormat.swift */; };
 		74D6DDEB2ACDDE25003A5D2E /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D6DDEA2ACDDE25003A5D2E /* View+If.swift */; };
 		74EBBD022ACF52F5001EDBF1 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 74EBBD012ACF52F5001EDBF1 /* Algorithms */; };
 /* End PBXBuildFile section */
@@ -82,6 +86,10 @@
 		74AF307D2AC4C46900E8893C /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		74AF307F2AC4CCB900E8893C /* ChildSizeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildSizeReader.swift; sourceTree = "<group>"; };
 		74C9AEB42AD0356000BD7C3C /* ChordFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordFormat.swift; sourceTree = "<group>"; };
+		74C9AEB62AD0494F00BD7C3C /* AccidentalChordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalChordView.swift; sourceTree = "<group>"; };
+		74C9AEB82AD063D900BD7C3C /* AccidentalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalView.swift; sourceTree = "<group>"; };
+		74C9AEBB2AD08E7600BD7C3C /* PitchChordFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchChordFormat.swift; sourceTree = "<group>"; };
+		74C9AEBD2AD08E9F00BD7C3C /* AccidentalChordFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccidentalChordFormat.swift; sourceTree = "<group>"; };
 		74D6DDEA2ACDDE25003A5D2E /* View+If.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+If.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,7 +150,9 @@
 				741BD3172AB9F9CF00E818E8 /* StaffRow.swift */,
 				741BD3192ABA428F00E818E8 /* NoteRow.swift */,
 				7457C3F42ABC9B1000AC22E5 /* ChordView.swift */,
-				74C9AEB42AD0356000BD7C3C /* ChordFormat.swift */,
+				74C9AEB82AD063D900BD7C3C /* AccidentalView.swift */,
+				74C9AEB62AD0494F00BD7C3C /* AccidentalChordView.swift */,
+				74C9AEBA2AD08E6400BD7C3C /* ChordFormat */,
 				74023AB42ABB30730071739B /* NoteView.swift */,
 				7457C3F02ABC873E00AC22E5 /* LedgerLineView.swift */,
 				749C49AC2AB77AEC005A1533 /* HarmonyVm.swift */,
@@ -186,6 +196,16 @@
 				74AF307A2AC4807C00E8893C /* AccidentalStyle.swift */,
 			);
 			path = Accidentals;
+			sourceTree = "<group>";
+		};
+		74C9AEBA2AD08E6400BD7C3C /* ChordFormat */ = {
+			isa = PBXGroup;
+			children = (
+				74C9AEB42AD0356000BD7C3C /* ChordFormat.swift */,
+				74C9AEBB2AD08E7600BD7C3C /* PitchChordFormat.swift */,
+				74C9AEBD2AD08E9F00BD7C3C /* AccidentalChordFormat.swift */,
+			);
+			path = ChordFormat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,11 +291,13 @@
 				741BD30C2AB9C82100E818E8 /* UpperExtension.swift in Sources */,
 				74AF30782AC4805400E8893C /* FixedSolfege.swift in Sources */,
 				74228BE02AC2005600091B19 /* Interval.swift in Sources */,
+				74C9AEBE2AD08E9F00BD7C3C /* AccidentalChordFormat.swift in Sources */,
 				747ED72F2AC720B30059342D /* NotationComponent.swift in Sources */,
 				746DDCF32AC6206C007694DE /* KeyboardStyle.swift in Sources */,
 				741BD3142AB9E44700E818E8 /* Accidental.swift in Sources */,
 				741BD30E2AB9C83000E818E8 /* TriadQuality.swift in Sources */,
 				7457C3F52ABC9B1000AC22E5 /* ChordView.swift in Sources */,
+				74C9AEB92AD063D900BD7C3C /* AccidentalView.swift in Sources */,
 				7493C4CB2AC3797D00DF2C37 /* Chord.swift in Sources */,
 				7457C3F92ABCCB3B00AC22E5 /* PitchClass.swift in Sources */,
 				7457C3F72ABCCB2600AC22E5 /* NoteName.swift in Sources */,
@@ -284,7 +306,9 @@
 				74AF30762AC4803900E8893C /* IntervalType.swift in Sources */,
 				749C49AD2AB77AEC005A1533 /* HarmonyVm.swift in Sources */,
 				741BD3162AB9E46A00E818E8 /* Pitch.swift in Sources */,
+				74C9AEBC2AD08E7600BD7C3C /* PitchChordFormat.swift in Sources */,
 				74AF307B2AC4807C00E8893C /* AccidentalStyle.swift in Sources */,
+				74C9AEB72AD0494F00BD7C3C /* AccidentalChordView.swift in Sources */,
 				741BD31A2ABA428F00E818E8 /* NoteRow.swift in Sources */,
 				741BD3182AB9F9CF00E818E8 /* StaffRow.swift in Sources */,
 				743CC5012ABB7D3700E3E46E /* Note.swift in Sources */,

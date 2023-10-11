@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Pitch: Identifiable {
     let id = UUID()
     let fixedSolfege: FixedSolfege
@@ -78,13 +77,14 @@ struct Pitch: Identifiable {
 /// view-related
 extension Pitch {
     
-    /// used to check if notes are adjacent on staff
+    /// ordered indices of note locations on staff (B3,C4,D4...)
     var staffOrder: Int {
         let noteOffset = (noteName.rawValue + 5) % 7
 //        return noteOffset * octave
         return noteOffset + octave * 7
     }
     
+    /// ordered indices of order of solfege notes (Cbb,Cb,C,C#,C##,Dbb...)
     var noteOrder: Int {
         return fixedSolfege.order + (octave * 35)
     }
@@ -145,6 +145,16 @@ extension Pitch {
             } else { return false }
         } else {
             return false
+        }
+    }
+    
+    func staffOffset(spaceHeight: CGFloat, lineHeight: CGFloat) -> CGFloat {
+        if self.octave >= 4 {
+            let noteOffset = self.noteName.trebleClefPosition + 7 * (self.octave - 5)
+            return -spaceHeight * 9 + -CGFloat(noteOffset) * (spaceHeight / 2 + lineHeight / 2)
+        } else {
+            let noteOffset = (self.noteName.trebleClefPosition - 1) + 7 * (self.octave - 4)
+            return -CGFloat(noteOffset) * (spaceHeight / 2 + lineHeight / 2) - (spaceHeight + lineHeight)
         }
     }
 }

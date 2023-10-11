@@ -17,22 +17,13 @@ struct NoteView: View {
         Image("whole.note")
             .resizable()
             .frame(width: spaceHeight * 1.05 * (460 / 309), height: spaceHeight * 1.05)
-            .offset(y: yOffset)
+            .offset(
+                y: pitch.staffOffset(
+                    spaceHeight: spaceHeight,
+                    lineHeight: lineHeight))
             .overlay {
                 LedgerLineView(pitch: pitch)
             }
-            .onAppear {
-                let x = pitch.staffOrder
-            }
-    }
-    var yOffset: CGFloat {
-        if pitch.octave >= 4 {
-            let noteOffset = pitch.noteName.trebleClefPosition + 7 * (pitch.octave - 5)
-            return -spaceHeight * 9 + -CGFloat(noteOffset) * (spaceHeight / 2 + lineHeight / 2)
-        } else {
-            let noteOffset = (pitch.noteName.trebleClefPosition - 1) + 7 * (pitch.octave - 4)
-            return -CGFloat(noteOffset) * (spaceHeight / 2 + lineHeight / 2) - (spaceHeight + lineHeight)
-        }
     }
 }
 

@@ -16,7 +16,10 @@ struct ChordView: View {
     
     let chordFormat: ChordFormat
     var pitchFormats: [ChordFormat.PitchChordFormat] { chordFormat.pitchFormats }
-    var accidentalOrder: [Pitch] { chordFormat.accidentalOrder }
+    var accidentalFormats: [ChordFormat.AccidentalChordFormat] { chordFormat.accidentalPitches }
+//    var accidentalPitches: [Pitch] { chordFormat.accidentalPitches.map { $0.pitch } }
+    var clusterOffset: CGFloat { -spaceHeight * 1.3 }
+    var containsCluster: Bool { return pitchFormats.contains { $0.isCluster } }
     
     var body: some View {
         ZStack {
@@ -24,9 +27,14 @@ struct ChordView: View {
                 NoteView(pitch: pitchFormat.pitch)
                     .if(pitchFormat.isOffset) { noteView in
                         noteView
-                            .offset(x: -spaceHeight * 1.3)
+                            .offset(x: clusterOffset)
                     }
             }
+            AccidentalChordView(accidentalPitches: accidentalFormats)
+                .if(containsCluster) { noteView in
+                    noteView
+                        .offset(x: clusterOffset)
+                }
         }
     }
     init(pitches: [Pitch]) {
