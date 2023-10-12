@@ -159,3 +159,7 @@ extension Pitch {
         }
     }
 }
+
+extension Pitch: Equatable {
+    
+}

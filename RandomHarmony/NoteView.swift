@@ -16,7 +16,7 @@ struct NoteView: View {
     var body: some View {
         Image("whole.note")
             .resizable()
-            .frame(width: spaceHeight * 1.05 * (460 / 309), height: spaceHeight * 1.05)
+            .frame(width: (spaceHeight + lineHeight) * (460 / 309), height: (spaceHeight + lineHeight))
             .offset(
                 y: pitch.staffOffset(
                     spaceHeight: spaceHeight,

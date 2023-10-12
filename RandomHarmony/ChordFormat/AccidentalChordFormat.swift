@@ -36,19 +36,42 @@ extension ChordFormat {
                     }
                 }
             
+            let accidentalsToAddToStack = pitches.enumerated().compactMap { index, pitch in
+                let pitchShouldBeInCluster = accidentalPitches.reduce(true) { currentState, existingClusterPitch in
+                    if abs(pitch.staffOrder - existingClusterPitch.staffOrder) >= 5 && currentState {
+                        return true
+                    } else {
+                        return false
+                    }
+                }
+                if pitchShouldBeInCluster {
+                    pitches.remove(at: index)
+                    return pitch
+                } else { return nil }
+            }
+            
+            accidentalPitches += accidentalsToAddToStack
+            let stackedAccidentals = accidentalPitches
+            
             // (Int,[Pitch]) is (numberOfGoodDistances, sequence)
             let remainingPitchesPermutations = pitches.permutations()
             let remainingPitches = remainingPitchesPermutations
                 .reduce((numberOfGoodDistances: Int.min, pitches: [Pitch]())) { partialResult, pitches in
-                    let numberOfGoodDistances = pitches.enumerated().map { index, pitch in
+                    let numberOfGoodDistances: Int = pitches.enumerated().map { index, pitch in
                         if index > 0 {
                             let lastPitch = index > 0 ? pitches[index - 1] : accidentalPitches.last
                             let staffOrder = pitch.staffOrder
                             let previousStaffOrder = lastPitch?.staffOrder ?? pitch.staffOrder
-                            let staffOrderDifference = abs(staffOrder - previousStaffOrder) >= 3 ? 1 : 0
+                            let staffOrderDifference = (previousStaffOrder - staffOrder) >= 3 ? 1 : 0
                             return staffOrderDifference
                         } else {
-                            return 0
+                            let staffOrder = pitch.staffOrder
+                            let staffOrderDifference = accidentalPitches.reduce(true) { previousResult, previousPitch in
+                                if !previousResult { return false }
+                                let previousStaffOrder = previousPitch.staffOrder
+                                return (previousStaffOrder - staffOrder) >= 5 ? true : false
+                            }
+                            return staffOrderDifference ? 1 : 0
                         }
                     }
                         .reduce(0, +)
@@ -59,35 +82,30 @@ extension ChordFormat {
                     }
                 }
                 .pitches
+            
             accidentalPitches += remainingPitches
             
             var totalAccidentalOffset = Double() // if accidentals are stacked, next non-stacked note should have its spacing determined by the closest note to it.
-            var stackedAccidentals = [Pitch]()
             var accidentalChordFormats = [AccidentalChordFormat]()
             accidentalPitches.enumerated().forEach { index, accidentalPitch in
-                if index > 0 {
+                if index > 0 && !stackedAccidentals.contains(where: { $0 == accidentalPitch }) {
                     let previousAccidentalPitch = accidentalPitches[index - 1]
-                    let closestPreviousAccidental = stackedAccidentals + [previousAccidentalPitch]
-                    let firstAccidentalClusterDistance = stackedAccidentals.reduce(Int.max) { lastDistance, pitch in
-                        let distance = min(lastDistance, abs(accidentalPitch.staffOrder - pitch.staffOrder))
-                        return distance
+                    var closestPreviousAccidental = stackedAccidentals // + [previousAccidentalPitch]
+                    if !stackedAccidentals.contains(where: { $0 == previousAccidentalPitch }) {
+                        closestPreviousAccidental = [previousAccidentalPitch]
                     }
                     let staffDistance = closestPreviousAccidental.reduce(Int.max) { lastDistance, pitch in
                         let newDistance = abs(accidentalPitch.staffOrder - pitch.staffOrder)
                         return min(lastDistance,newDistance)
                     }
-                    if firstAccidentalClusterDistance >= 5 {
-                        stackedAccidentals.append(accidentalPitch)
-                        accidentalChordFormats.insert(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.7), at: 1)
-                    } else {
-                        let accidentalOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousAccidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
-                        totalAccidentalOffset += accidentalOffset
-                        accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: totalAccidentalOffset))
-                    }
+                    let accidentalOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousAccidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
+                    totalAccidentalOffset += accidentalOffset
+                    accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: totalAccidentalOffset))
                 } else {
-                    totalAccidentalOffset += 1.7
+                    if index == 0 {
+                        totalAccidentalOffset += 1.7
+                    }
                     accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.7))
-                    stackedAccidentals.append(accidentalPitch)
                 }
             }
             return accidentalChordFormats
@@ -259,10 +277,10 @@ struct AccidentalChordFormat_Previews: PreviewProvider {
             let spaceHeight = staffHeight / 9
             VStack {
                 StaffRow()
-//                StaffRow(debugStaffRow: .flatflat)
-//                StaffRow(debugStaffRow: .flatsharp)
-//                StaffRow(debugStaffRow: .sharpflat)
-//                StaffRow(debugStaffRow: .sharpsharp)
+                //                StaffRow(debugStaffRow: .flatflat)
+                //                StaffRow(debugStaffRow: .flatsharp)
+                //                StaffRow(debugStaffRow: .sharpflat)
+                //                StaffRow(debugStaffRow: .sharpsharp)
             }
             .environment(\.staffHeight, staffHeight)
             .environment(\.staffSpace, staffSpace)
