@@ -28,19 +28,44 @@ struct StaffRow: View {
     @Environment(\.staffSpace) var staffSpace
     @Environment(\.lineHeight) var lineHeight
     @Environment(\.spaceHeight) var spaceHeight
-    let debugStaffRow: DebugStaffRow
+    var debugStaffRow: DebugStaffRow?
     var body: some View {
         ZStack {
             grandStaff
-            switch debugStaffRow {
-            case .flatflat:
-                flatflat
-            case .flatsharp:
-                flatsharp
-            case .sharpflat:
-                sharpflat
-            case .sharpsharp:
-                sharpsharp
+            HStack {
+                /// grand staff space
+                Spacer()
+                    .frame(width: (staffHeight * 2 - (spaceHeight * 4 + lineHeight * 2)) * 6/83)
+                /// clef space
+                Spacer()
+                    .frame(width: (staffHeight - (spaceHeight * 4 + lineHeight)) * (200 / 600) * 1.7)
+                /// extra space height
+                Spacer()
+                    .frame(width: spaceHeight)
+//                HStack {
+//                    ChordView(pitches: [
+//                        Pitch(fixedSolfege: .Fsharp, octave: 2),
+//                        Pitch(fixedSolfege: .Gsharp, octave: 2),
+//                        Pitch(fixedSolfege: .Asharp, octave: 2),
+//                        Pitch(fixedSolfege: .Bsharp, octave: 2),
+//                        Pitch(fixedSolfege: .Csharp, octave: 3),
+//                        Pitch(fixedSolfege: .Dsharp, octave: 3),
+//                        Pitch(fixedSolfege: .Esharp, octave: 3),
+//                        Pitch(fixedSolfege: .Fsharp, octave: 3)
+//                    ])
+//                }
+                if let debugStaffRow {
+                    switch debugStaffRow {
+                    case .flatflat:
+                        flatflat
+                    case .flatsharp:
+                        flatsharp
+                    case .sharpflat:
+                        sharpflat
+                    case .sharpsharp:
+                        sharpsharp
+                    }
+                }
             }
         }
     }
@@ -375,7 +400,7 @@ struct StaffRow_Previews: PreviewProvider {
             let staffHeight = staffRatio * height / staveCount - (staffSpace / staveCount)
             let lineHeight = staffHeight / 63
             let spaceHeight = staffHeight / 9
-            StaffRow(debugStaffRow: .flatflat)
+            StaffRow()
                 .environment(\.staffHeight, staffHeight)
                 .environment(\.staffSpace, staffSpace)
                 .environment(\.lineHeight, lineHeight)

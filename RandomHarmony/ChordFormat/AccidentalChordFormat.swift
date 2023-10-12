@@ -87,86 +87,137 @@ extension ChordFormat {
         
         /// sharps and flats only. fatal error on any other Accidental
         static func xOffset(accidentalPitch: Accidental, lastPitch: Accidental, staffDistance: Int) -> CGFloat {
-            let lastAccidentalSpacing: CGFloat = switch lastPitch {
+            switch accidentalPitch {
             case .doubleFlat:
-                fatalError()
+                fatalError("not supported yet")
             case .flat:
-                switch staffDistance {
-                case 0:
-                    fatalError("unison accidentals not handled yet")
-                case 1:
-                    1.1
-                case 2:
-                    1.1
-                case 3:
-                    0.8
-                case 4:
-                    0.6
-                case 5...Int.max:
-                    0.0
-                default:
-                    fatalError("should not have interval outside of 0...Int.max")
+                switch lastPitch {
+                case .doubleFlat:
+                    fatalError("not supported yet")
+                case .flat:
+                    return flatAfterFlat(staffDistance: staffDistance)
+                case .natural:
+                    fatalError("not supported yet")
+                case .sharp:
+                    return flatAfterSharp(staffDistance: staffDistance)
+                case .doubleSharp:
+                    fatalError("not supported yet")
                 }
             case .natural:
-                fatalError()
+                fatalError("not supported yet")
             case .sharp:
-                switch staffDistance {
-                case 0:
-                    fatalError("unison accidentals not handled yet")
-                case 1:
-                    1.3
-                case 2:
-                    1.3
-                case 3:
-                    1.3
-                case 4:
-                    0.8
-                case 5:
-                    0.5
-                case 6:
-                    0.3
-                case 7...Int.max:
-                    0.0
-                default:
-                    fatalError("should not have interval outside of 0...Int.max")
+                switch lastPitch {
+                case .doubleFlat:
+                    fatalError("not supported yet")
+                case .flat:
+                    return sharpAfterFlat(staffDistance: staffDistance)
+                case .natural:
+                    fatalError("not supported yet")
+                case .sharp:
+                    return sharpAfterSharp(staffDistance: staffDistance)
+                case .doubleSharp:
+                    fatalError("not supported yet")
                 }
             case .doubleSharp:
-                fatalError()
+                fatalError("not supported yet")
             }
-            
-            let currentAccidentalSpacing: CGFloat  = switch accidentalPitch {
-            case .doubleFlat:
-                fatalError()
-            case .flat:
-                0
-            case .natural:
-                fatalError()
-            case .sharp:
-                if lastPitch == .flat {
-                    switch staffDistance {
-                    case 1...3:
-                        0.3
-                    case 4:
-                        0.1
-                    default:
-                        0
-                    }
-                } else if lastPitch == .sharp {
-                    switch staffDistance {
-                    case 4...5:
-                        0.3
-                    case 6:
-                        -0.3
-                    default:
-                        0
-                    }
-                } else {
-                    0.0
-                }
-            case .doubleSharp:
-                fatalError()
+            return 0
+        }
+        
+        
+        /// previous note is a flat. following note is a flat
+        static func flatAfterFlat(staffDistance: Int) -> CGFloat {
+            switch staffDistance {
+            case 0:
+                fatalError("unisons not handled yet")
+            case 1:
+                return 0
+            case 2:
+                return 0
+            case 3:
+                return 0
+            case 4:
+                return 0
+            case 5:
+                return 0
+            case 6:
+                return 0
+            case 7...Int.max:
+                return 0
+            default:
+                fatalError("staff distance should not be outside of this range (0...Int.max)")
             }
-            return lastAccidentalSpacing + currentAccidentalSpacing
+        }
+        /// previous note is a sharp. following note is a flat
+        static func flatAfterSharp(staffDistance: Int) -> CGFloat {
+            switch staffDistance {
+            case 0:
+                fatalError("unisons not handled yet")
+            case 1:
+                return 0
+            case 2:
+                return 0
+            case 3:
+                return 0
+            case 4:
+                return 0
+            case 5:
+                return 0
+            case 6:
+                return 0
+            case 7...Int.max:
+                return 0
+            default:
+                fatalError("staff distance should not be outside of this range (0...Int.max)")
+            }
+        }
+        
+        /// previous note is a flat. following note is a sharp
+        static func sharpAfterFlat(staffDistance: Int) -> CGFloat {
+            switch staffDistance {
+            case 0:
+                fatalError("unisons not handled yet")
+            case 1:
+                return 0
+            case 2:
+                return 0
+            case 3:
+                return 0
+            case 4:
+                return 0
+            case 5:
+                return 0
+            case 6:
+                return 0
+            case 7...Int.max:
+                return 0
+            default:
+                fatalError("staff distance should not be outside of this range (0...Int.max)")
+            }
+        }
+        
+        /// previous note is a sharp. following note is a flat
+        static func sharpAfterSharp(staffDistance: Int) -> CGFloat {
+            switch staffDistance {
+            case 0:
+                fatalError("unisons not handled yet")
+            case 1:
+                return 0
+            case 2:
+                return 0
+            case 3:
+                return 0
+            case 4:
+                return 0
+            case 5:
+                return 0
+            case 6:
+                return 0
+            case 7...Int.max:
+                return 0
+            default:
+                fatalError("staff distance should not be outside of this range (0...Int.max)")
+            }
         }
     }
 }
@@ -204,10 +255,10 @@ struct AccidentalChordFormat_Previews: PreviewProvider {
                 StaffRow(debugStaffRow: .sharpflat)
                 StaffRow(debugStaffRow: .sharpsharp)
             }
-                .environment(\.staffHeight, staffHeight)
-                .environment(\.staffSpace, staffSpace)
-                .environment(\.lineHeight, lineHeight)
-                .environment(\.spaceHeight, spaceHeight)
+            .environment(\.staffHeight, staffHeight)
+            .environment(\.staffSpace, staffSpace)
+            .environment(\.lineHeight, lineHeight)
+            .environment(\.spaceHeight, spaceHeight)
         }
     }
 }

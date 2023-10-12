@@ -17,7 +17,12 @@ struct ContentView: View {
             let staffHeight = staffRatio * height / staveCount - (staffSpace / staveCount)
             let lineHeight = staffHeight / 63
             let spaceHeight = staffHeight / 9
-            StaffRow(debugStaffRow: .flatflat)
+            VStack {
+                StaffRow(debugStaffRow: .flatflat)
+                StaffRow(debugStaffRow: .flatsharp)
+                StaffRow(debugStaffRow: .sharpflat)
+                StaffRow(debugStaffRow: .sharpsharp)
+            }
                 .environment(\.staffHeight, staffHeight)
                 .environment(\.staffSpace, staffSpace)
                 .environment(\.lineHeight, lineHeight)
