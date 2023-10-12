@@ -18,10 +18,11 @@ struct ContentView: View {
             let lineHeight = staffHeight / 63
             let spaceHeight = staffHeight / 9
             VStack {
-                StaffRow(debugStaffRow: .flatflat)
-                StaffRow(debugStaffRow: .flatsharp)
-                StaffRow(debugStaffRow: .sharpflat)
-                StaffRow(debugStaffRow: .sharpsharp)
+                StaffRow()
+//                StaffRow(debugStaffRow: .flatflat)
+//                StaffRow(debugStaffRow: .flatsharp)
+//                StaffRow(debugStaffRow: .sharpflat)
+//                StaffRow(debugStaffRow: .sharpsharp)
             }
                 .environment(\.staffHeight, staffHeight)
                 .environment(\.staffSpace, staffSpace)

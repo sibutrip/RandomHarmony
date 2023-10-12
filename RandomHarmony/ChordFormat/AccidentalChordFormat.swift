@@ -63,23 +63,31 @@ extension ChordFormat {
             
             var totalAccidentalOffset = Double() // if accidentals are stacked, next non-stacked note should have its spacing determined by the closest note to it.
             var stackedAccidentals = [Pitch]()
-            let accidentalChordFormats: [AccidentalChordFormat] = accidentalPitches.enumerated().map { index, accidentalPitch in
+            var accidentalChordFormats = [AccidentalChordFormat]()
+            accidentalPitches.enumerated().forEach { index, accidentalPitch in
                 if index > 0 {
                     let previousAccidentalPitch = accidentalPitches[index - 1]
                     let closestPreviousAccidental = stackedAccidentals + [previousAccidentalPitch]
+                    let firstAccidentalClusterDistance = stackedAccidentals.reduce(Int.max) { lastDistance, pitch in
+                        let distance = min(lastDistance, abs(accidentalPitch.staffOrder - pitch.staffOrder))
+                        return distance
+                    }
                     let staffDistance = closestPreviousAccidental.reduce(Int.max) { lastDistance, pitch in
                         let newDistance = abs(accidentalPitch.staffOrder - pitch.staffOrder)
                         return min(lastDistance,newDistance)
                     }
-                    if staffDistance >= 6 {
-                        stackedAccidentals.append(previousAccidentalPitch)
+                    if firstAccidentalClusterDistance >= 5 {
+                        stackedAccidentals.append(accidentalPitch)
+                        accidentalChordFormats.insert(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.7), at: 1)
+                    } else {
+                        let accidentalOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousAccidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
+                        totalAccidentalOffset += accidentalOffset
+                        accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: totalAccidentalOffset))
                     }
-                    let accidentalOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousAccidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
-                    totalAccidentalOffset += accidentalOffset
-                    return AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: totalAccidentalOffset)
                 } else {
                     totalAccidentalOffset += 1.7
-                    return AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.7)
+                    accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.7))
+                    stackedAccidentals.append(accidentalPitch)
                 }
             }
             return accidentalChordFormats
@@ -250,10 +258,11 @@ struct AccidentalChordFormat_Previews: PreviewProvider {
             let lineHeight = staffHeight / 63
             let spaceHeight = staffHeight / 9
             VStack {
-                StaffRow(debugStaffRow: .flatflat)
-                StaffRow(debugStaffRow: .flatsharp)
-                StaffRow(debugStaffRow: .sharpflat)
-                StaffRow(debugStaffRow: .sharpsharp)
+                StaffRow()
+//                StaffRow(debugStaffRow: .flatflat)
+//                StaffRow(debugStaffRow: .flatsharp)
+//                StaffRow(debugStaffRow: .sharpflat)
+//                StaffRow(debugStaffRow: .sharpsharp)
             }
             .environment(\.staffHeight, staffHeight)
             .environment(\.staffSpace, staffSpace)
