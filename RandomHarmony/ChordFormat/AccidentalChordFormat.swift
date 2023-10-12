@@ -86,7 +86,7 @@ extension ChordFormat {
         }
         
         /// sharps and flats only. fatal error on any other Accidental
-        static func xOffset(accidentalPitch: Accidental, lastPitch: Accidental, staffDistance: Int) -> CGFloat {
+        private static func xOffset(accidentalPitch: Accidental, lastPitch: Accidental, staffDistance: Int) -> CGFloat {
             switch accidentalPitch {
             case .doubleFlat:
                 fatalError("not supported yet")
@@ -126,20 +126,20 @@ extension ChordFormat {
         
         
         /// previous note is a flat. following note is a flat
-        static func flatAfterFlat(staffDistance: Int) -> CGFloat {
+        private static func flatAfterFlat(staffDistance: Int) -> CGFloat {
             switch staffDistance {
             case 0:
                 fatalError("unisons not handled yet")
             case 1:
-                return 0
+                return 1.1
             case 2:
-                return 0
+                return 1.1
             case 3:
-                return 0
+                return 0.7
             case 4:
-                return 0
+                return 0.7
             case 5:
-                return 0
+                return 0.4
             case 6:
                 return 0
             case 7...Int.max:
@@ -149,22 +149,22 @@ extension ChordFormat {
             }
         }
         /// previous note is a sharp. following note is a flat
-        static func flatAfterSharp(staffDistance: Int) -> CGFloat {
+        private static func flatAfterSharp(staffDistance: Int) -> CGFloat {
             switch staffDistance {
             case 0:
                 fatalError("unisons not handled yet")
             case 1:
-                return 0
+                return 1.2
             case 2:
-                return 0
+                return 1.2
             case 3:
-                return 0
+                return 1.1
             case 4:
-                return 0
+                return 0.7
             case 5:
-                return 0
+                return 0.6
             case 6:
-                return 0
+                return 0.4
             case 7...Int.max:
                 return 0
             default:
@@ -173,16 +173,16 @@ extension ChordFormat {
         }
         
         /// previous note is a flat. following note is a sharp
-        static func sharpAfterFlat(staffDistance: Int) -> CGFloat {
+        private static func sharpAfterFlat(staffDistance: Int) -> CGFloat {
             switch staffDistance {
             case 0:
                 fatalError("unisons not handled yet")
             case 1:
-                return 0
+                return 1.2
             case 2:
-                return 0
+                return 1.2
             case 3:
-                return 0
+                return 1.1
             case 4:
                 return 0
             case 5:
@@ -197,20 +197,20 @@ extension ChordFormat {
         }
         
         /// previous note is a sharp. following note is a flat
-        static func sharpAfterSharp(staffDistance: Int) -> CGFloat {
+        private static func sharpAfterSharp(staffDistance: Int) -> CGFloat {
             switch staffDistance {
             case 0:
                 fatalError("unisons not handled yet")
             case 1:
-                return 0
+                return 1.25
             case 2:
-                return 0
+                return 1.25
             case 3:
-                return 0
+                return 1.25
             case 4:
-                return 0
+                return 1.1
             case 5:
-                return 0
+                return 1
             case 6:
                 return 0
             case 7...Int.max:

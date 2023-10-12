@@ -42,18 +42,31 @@ struct StaffRow: View {
                 /// extra space height
                 Spacer()
                     .frame(width: spaceHeight)
-//                HStack {
+                HStack {
 //                    ChordView(pitches: [
 //                        Pitch(fixedSolfege: .Fsharp, octave: 2),
-//                        Pitch(fixedSolfege: .Gsharp, octave: 2),
+//                        Pitch(fixedSolfege: .Gb, octave: 2),
 //                        Pitch(fixedSolfege: .Asharp, octave: 2),
 //                        Pitch(fixedSolfege: .Bsharp, octave: 2),
-//                        Pitch(fixedSolfege: .Csharp, octave: 3),
-//                        Pitch(fixedSolfege: .Dsharp, octave: 3),
+//                        Pitch(fixedSolfege: .Cb, octave: 3),
+//                        Pitch(fixedSolfege: .Db, octave: 3),
 //                        Pitch(fixedSolfege: .Esharp, octave: 3),
 //                        Pitch(fixedSolfege: .Fsharp, octave: 3)
 //                    ])
-//                }
+                    ChordView(pitches: [
+                        Pitch(fixedSolfege: .Fb, octave: 2),
+                        Pitch(fixedSolfege: .Gb, octave: 2),
+                        Pitch(fixedSolfege: .Ab, octave: 2),
+                        Pitch(fixedSolfege: .Bb, octave: 2),
+                        Pitch(fixedSolfege: .Cb, octave: 3),
+                        Pitch(fixedSolfege: .Db, octave: 3),
+                        Pitch(fixedSolfege: .Eb, octave: 3),
+                        Pitch(fixedSolfege: .Fb, octave: 3),
+                        Pitch(fixedSolfege: .Gb, octave: 3),
+                        Pitch(fixedSolfege: .Ab, octave: 3),
+                        Pitch(fixedSolfege: .Bb, octave: 3)
+                                        ])
+                }
                 if let debugStaffRow {
                     switch debugStaffRow {
                     case .flatflat:
@@ -68,6 +81,7 @@ struct StaffRow: View {
                 }
             }
         }
+        .padding(.horizontal, spaceHeight)
     }
     
     var grandStaff: some View {
