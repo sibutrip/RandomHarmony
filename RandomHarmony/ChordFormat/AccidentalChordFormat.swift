@@ -38,7 +38,7 @@ extension ChordFormat {
             
             let accidentalsToAddToStack = pitches.enumerated().compactMap { index, pitch in
                 let pitchShouldBeInCluster = accidentalPitches.reduce(true) { currentState, existingClusterPitch in
-                    if abs(pitch.staffOrder - existingClusterPitch.staffOrder) >= 5 && currentState {
+                    if abs(pitch.staffOrder - existingClusterPitch.staffOrder) >= 6 && currentState {
                         return true
                     } else {
                         return false
@@ -84,186 +84,68 @@ extension ChordFormat {
                 .pitches
             
             accidentalPitches += remainingPitches
-            
+//            var lastStaffDistance = 1
             var totalAccidentalOffset = Double() // if accidentals are stacked, next non-stacked note should have its spacing determined by the closest note to it.
             var accidentalChordFormats = [AccidentalChordFormat]()
             accidentalPitches.enumerated().forEach { index, accidentalPitch in
-                if index > 0 && !stackedAccidentals.contains(where: { $0 == accidentalPitch }) {
+                if index > 0 {
                     let previousAccidentalPitch = accidentalPitches[index - 1]
+                    let previousPreviousAccidentalPitch = index > 1 ? accidentalPitches[index - 2] : previousAccidentalPitch
                     var closestPreviousAccidental = stackedAccidentals // + [previousAccidentalPitch]
+                    var closestPreviousPreviousAccidental = stackedAccidentals // + [previousAccidentalPitch]
                     if !stackedAccidentals.contains(where: { $0 == previousAccidentalPitch }) {
                         closestPreviousAccidental = [previousAccidentalPitch]
+                    } else if stackedAccidentals.contains(where: { $0 == accidentalPitch} ) {
+                        closestPreviousAccidental = closestPreviousAccidental.filter {
+                            $0 != accidentalPitch
+                        }
+                    }
+                    if index > stackedAccidentals.count {
+                        closestPreviousPreviousAccidental = [previousPreviousAccidentalPitch]
+                    } else {
+                        closestPreviousPreviousAccidental = closestPreviousAccidental
                     }
                     let staffDistance = closestPreviousAccidental.reduce(Int.max) { lastDistance, pitch in
                         let newDistance = abs(accidentalPitch.staffOrder - pitch.staffOrder)
                         return min(lastDistance,newDistance)
                     }
-                    let accidentalOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousAccidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
+                    let lastStaffDistance = closestPreviousPreviousAccidental.reduce(Int.max) { lastDistance, pitch in
+                        let newDistance = abs(accidentalPitch.staffOrder - pitch.staffOrder)
+                        return min(lastDistance,newDistance)
+                    }
+                    let currentOffset = Self.xOffset(first: previousAccidentalPitch.fixedSolfege.accidental, second: accidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
+                    let lastOffset = Self.xOffset(first: previousPreviousAccidentalPitch.fixedSolfege.accidental, second: accidentalPitch.fixedSolfege.accidental, staffDistance: lastStaffDistance)
+//                    let currentOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousAccidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
+//                    let lastOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousPreviousAccidentalPitch.fixedSolfege.accidental, staffDistance: lastStaffDistance)
+                    var accidentalOffset: CGFloat
+                    
+                    // conditions for accidental spacing to avoid collision with previousPrevious accidental
+                    if lastOffset > currentOffset {
+                        let offsetDifference = lastOffset - currentOffset
+                        if offsetDifference > currentOffset {
+                            accidentalOffset = offsetDifference
+                        } else { accidentalOffset = currentOffset }
+                    } else {
+                        accidentalOffset = currentOffset
+                    }
                     totalAccidentalOffset += accidentalOffset
                     accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: totalAccidentalOffset))
                 } else {
                     if index == 0 {
-                        totalAccidentalOffset += 1.7
+                        totalAccidentalOffset += 1.9
                     }
-                    accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.7))
+                    accidentalChordFormats.append(AccidentalChordFormat(pitch: accidentalPitch, offsetMultiplier: 1.9))
                 }
             }
             return accidentalChordFormats
         }
         
         /// sharps and flats only. fatal error on any other Accidental
-        private static func xOffset(accidentalPitch: Accidental, lastPitch: Accidental, staffDistance: Int) -> CGFloat {
-            switch accidentalPitch {
-            case .doubleFlat:
-                fatalError("not supported yet")
-            case .flat:
-                switch lastPitch {
-                case .doubleFlat:
-                    fatalError("not supported yet")
-                case .flat:
-                    return flatAfterFlat(staffDistance: staffDistance)
-                case .natural:
-                    fatalError("not supported yet")
-                case .sharp:
-                    return flatAfterSharp(staffDistance: staffDistance)
-                case .doubleSharp:
-                    fatalError("not supported yet")
-                }
-            case .natural:
-                fatalError("not supported yet")
-            case .sharp:
-                switch lastPitch {
-                case .doubleFlat:
-                    fatalError("not supported yet")
-                case .flat:
-                    return sharpAfterFlat(staffDistance: staffDistance)
-                case .natural:
-                    fatalError("not supported yet")
-                case .sharp:
-                    return sharpAfterSharp(staffDistance: staffDistance)
-                case .doubleSharp:
-                    fatalError("not supported yet")
-                }
-            case .doubleSharp:
-                fatalError("not supported yet")
-            }
-            return 0
-        }
-        
-        
-        /// previous note is a flat. following note is a flat
-        private static func flatAfterFlat(staffDistance: Int) -> CGFloat {
-            switch staffDistance {
-            case 0:
-                fatalError("unisons not handled yet")
-            case 1:
-                return 1.1
-            case 2:
-                return 1.1
-            case 3:
-                return 0.7
-            case 4:
-                return 0.7
-            case 5:
-                return 0.4
-            case 6:
-                return 0
-            case 7...Int.max:
-                return 0
-            default:
-                fatalError("staff distance should not be outside of this range (0...Int.max)")
-            }
-        }
-        /// previous note is a sharp. following note is a flat
-        private static func flatAfterSharp(staffDistance: Int) -> CGFloat {
-            switch staffDistance {
-            case 0:
-                fatalError("unisons not handled yet")
-            case 1:
-                return 1.2
-            case 2:
-                return 1.2
-            case 3:
-                return 1.1
-            case 4:
-                return 0.7
-            case 5:
-                return 0.6
-            case 6:
-                return 0.4
-            case 7...Int.max:
-                return 0
-            default:
-                fatalError("staff distance should not be outside of this range (0...Int.max)")
-            }
-        }
-        
-        /// previous note is a flat. following note is a sharp
-        private static func sharpAfterFlat(staffDistance: Int) -> CGFloat {
-            switch staffDistance {
-            case 0:
-                fatalError("unisons not handled yet")
-            case 1:
-                return 1.2
-            case 2:
-                return 1.2
-            case 3:
-                return 1.1
-            case 4:
-                return 0
-            case 5:
-                return 0
-            case 6:
-                return 0
-            case 7...Int.max:
-                return 0
-            default:
-                fatalError("staff distance should not be outside of this range (0...Int.max)")
-            }
-        }
-        
-        /// previous note is a sharp. following note is a flat
-        private static func sharpAfterSharp(staffDistance: Int) -> CGFloat {
-            switch staffDistance {
-            case 0:
-                fatalError("unisons not handled yet")
-            case 1:
-                return 1.25
-            case 2:
-                return 1.25
-            case 3:
-                return 1.25
-            case 4:
-                return 1.1
-            case 5:
-                return 1
-            case 6:
-                return 0
-            case 7...Int.max:
-                return 0
-            default:
-                fatalError("staff distance should not be outside of this range (0...Int.max)")
-            }
+        private static func xOffset(first: Accidental, second: Accidental, staffDistance: Int) -> CGFloat {
+            return IntervalDirection.offset(from: first, to: second, over: staffDistance)
         }
     }
 }
-
-//switch staffDistance {
-//case 0:
-//    fatalError("unison accidentals not handled yet")
-//case 1:
-//    1.1
-//case 2:
-//    1.0
-//case 3:
-//    0.9
-//case 4:
-//    0.7
-//case 5...Int.max:
-//    0.0
-//default:
-//    fatalError("should not have interval outside of 0...Int.max")
-//}
 
 struct AccidentalChordFormat_Previews: PreviewProvider {
     static var previews: some View {
@@ -277,10 +159,10 @@ struct AccidentalChordFormat_Previews: PreviewProvider {
             let spaceHeight = staffHeight / 9
             VStack {
                 StaffRow()
-                //                StaffRow(debugStaffRow: .flatflat)
-                //                StaffRow(debugStaffRow: .flatsharp)
-                //                StaffRow(debugStaffRow: .sharpflat)
-                //                StaffRow(debugStaffRow: .sharpsharp)
+//                                StaffRow(debugStaffRow: .flatflat)
+//                                StaffRow(debugStaffRow: .flatsharp)
+//                                StaffRow(debugStaffRow: .sharpflat)
+//                                StaffRow(debugStaffRow: .sharpsharp)
             }
             .environment(\.staffHeight, staffHeight)
             .environment(\.staffSpace, staffSpace)

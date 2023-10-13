@@ -28,6 +28,7 @@
 		746DDCF32AC6206C007694DE /* KeyboardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746DDCF22AC6206C007694DE /* KeyboardStyle.swift */; };
 		747ED72D2AC71CC70059342D /* Bravura.otf in Resources */ = {isa = PBXBuildFile; fileRef = 747ED72C2AC71CC70059342D /* Bravura.otf */; };
 		747ED72F2AC720B30059342D /* NotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747ED72E2AC720B30059342D /* NotationComponent.swift */; };
+		748F2B9F2AD9794900C3A5CA /* IntervalDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748F2B9E2AD9794900C3A5CA /* IntervalDirection.swift */; };
 		7493C4CB2AC3797D00DF2C37 /* Chord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7493C4CA2AC3797D00DF2C37 /* Chord.swift */; };
 		749C499F2AB77ACE005A1533 /* RandomHarmonyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */; };
 		749C49A12AB77ACE005A1533 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749C49A02AB77ACE005A1533 /* ContentView.swift */; };
@@ -72,6 +73,7 @@
 		747ED7252AC703D10059342D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		747ED72C2AC71CC70059342D /* Bravura.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bravura.otf; sourceTree = "<group>"; };
 		747ED72E2AC720B30059342D /* NotationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotationComponent.swift; sourceTree = "<group>"; };
+		748F2B9E2AD9794900C3A5CA /* IntervalDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalDirection.swift; sourceTree = "<group>"; };
 		7493C4CA2AC3797D00DF2C37 /* Chord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chord.swift; sourceTree = "<group>"; };
 		749C499B2AB77ACE005A1533 /* RandomHarmony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomHarmony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		749C499E2AB77ACE005A1533 /* RandomHarmonyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomHarmonyApp.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		74AF30792AC4806300E8893C /* Intervals */ = {
 			isa = PBXGroup;
 			children = (
+				748F2B9E2AD9794900C3A5CA /* IntervalDirection.swift */,
 				74228BDF2AC2005600091B19 /* Interval.swift */,
 				74AF30772AC4805400E8893C /* FixedSolfege.swift */,
 				74AF30752AC4803900E8893C /* IntervalType.swift */,
@@ -312,6 +315,7 @@
 				741BD31A2ABA428F00E818E8 /* NoteRow.swift in Sources */,
 				741BD3182AB9F9CF00E818E8 /* StaffRow.swift in Sources */,
 				743CC5012ABB7D3700E3E46E /* Note.swift in Sources */,
+				748F2B9F2AD9794900C3A5CA /* IntervalDirection.swift in Sources */,
 				74C9AEB52AD0356000BD7C3C /* ChordFormat.swift in Sources */,
 				740A12102ABB22B5006F6180 /* EnvironmentValues.swift in Sources */,
 				74023AB52ABB30730071739B /* NoteView.swift in Sources */,

@@ -119,180 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "85837AB6-3059-47DC-9E7E-54055015D9C8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "85837AB6-3059-47DC-9E7E-54055015D9C8 - f15af0964f22bb6b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "1100">
-               </Location>
-               <Location
-                  uuid = "85837AB6-3059-47DC-9E7E-54055015D9C8 - 5e5c12bb8248beaf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 ((numberOfGoodDistances: Swift.Int, pitches: Swift.Array&lt;RandomHarmony.Pitch&gt;), Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; (numberOfGoodDistances: Swift.Int, pitches: Swift.Array&lt;RandomHarmony.Pitch&gt;) in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  uuid = "85837AB6-3059-47DC-9E7E-54055015D9C8 - f15af0964f22bbb4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "1312">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BBB2BAD4-6AF6-4BAD-8C48-95B322BA27A5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BBB2BAD4-6AF6-4BAD-8C48-95B322BA27A5 - 4c29009dce4240b9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "960">
-               </Location>
-               <Location
-                  uuid = "BBB2BAD4-6AF6-4BAD-8C48-95B322BA27A5 - 4c29009dce424058"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "960">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EC595BE1-A101-4BBC-B6E2-99E1EFBA9AFC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EC595BE1-A101-4BBC-B6E2-99E1EFBA9AFC - 312fd429f19ecd05"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 (Swift.Int, RandomHarmony.Pitch) -&gt; RandomHarmony.ChordFormat.AccidentalChordFormat in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "428">
-               </Location>
-               <Location
-                  uuid = "EC595BE1-A101-4BBC-B6E2-99E1EFBA9AFC - 312fd429f19ecd05"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 (Swift.Int, RandomHarmony.Pitch) -&gt; RandomHarmony.ChordFormat.AccidentalChordFormat in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "372">
-               </Location>
-               <Location
-                  uuid = "EC595BE1-A101-4BBC-B6E2-99E1EFBA9AFC - 3a1c285f2d5534da"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #5 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "376">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "B98795E0-E8C1-4384-848B-920BE2621D4B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -325,212 +151,52 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C995D272-4BEF-4665-8B2D-E798C7C9908F"
+            uuid = "B4EF04EA-0AC9-4CC5-B808-E0403023F9CD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "xOffset(accidentalPitch:lastPitch:staffDistance:)"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "createAccidentalOrder(from:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D83A3DBD-FEA7-4989-8387-F5F39F9F3E55"
+            uuid = "E677083D-D1FD-4327-9A44-6EFD64E2A75E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "createAccidentalOrder(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50F49333-6688-4221-8531-AB7A36B987B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "createAccidentalOrder(from:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D83A3DBD-FEA7-4989-8387-F5F39F9F3E55 - f99adbec717ce62c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.Int, RandomHarmony.Pitch) -&gt; Swift.Int in closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "336">
-               </Location>
-               <Location
-                  uuid = "D83A3DBD-FEA7-4989-8387-F5F39F9F3E55 - 6433584454aadc4f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Swift.Int, RandomHarmony.Pitch) -&gt; Swift.Int in closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "336">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A16B7AFD-7448-4458-8027-43E5AA266710"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A16B7AFD-7448-4458-8027-43E5AA266710 - f15af0964f22a57a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "1020">
-               </Location>
-               <Location
-                  uuid = "A16B7AFD-7448-4458-8027-43E5AA266710 - f15af0964f22a5a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "804">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "881A65F3-5979-46AF-8178-E7DCF40FECB2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E8857AFB-EB5A-4EA4-886C-91990AB6F823"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E8857AFB-EB5A-4EA4-886C-91990AB6F823 - 4c29009dce425e06"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "724">
-               </Location>
-               <Location
-                  uuid = "E8857AFB-EB5A-4EA4-886C-91990AB6F823 - 4c29009dce425e06"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "90"
-                  endingLineNumber = "90"
-                  offsetFromSymbolStart = "652">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2FB59E1E-4A0C-46E8-8F13-786A8A07E2F0"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7D7743BF-D78E-423B-9850-72691AC6B8EF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7D7743BF-D78E-423B-9850-72691AC6B8EF - 4c29009dce424140"
+                  uuid = "50F49333-6688-4221-8531-AB7A36B987B5 - 4c29009dce424140"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -542,149 +208,22 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
                   endingLineNumber = "96"
-                  offsetFromSymbolStart = "1324">
+                  offsetFromSymbolStart = "792">
                </Location>
                <Location
-                  uuid = "7D7743BF-D78E-423B-9850-72691AC6B8EF - 6433584454aadc2e"
+                  uuid = "50F49333-6688-4221-8531-AB7A36B987B5 - 533787e0e4f05881"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #3 (Swift.Int, RandomHarmony.Pitch) -&gt; Swift.Int in closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
+                  symbolName = "closure #1 (RandomHarmony.Pitch) -&gt; Swift.Bool in closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
                   moduleName = "RandomHarmony"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "164">
-               </Location>
-               <Location
-                  uuid = "7D7743BF-D78E-423B-9850-72691AC6B8EF - 4c29009dce42417f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "1248">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E3A67436-2541-4FAD-9FF7-A2D95DC2E451"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "xOffset(accidentalPitch:lastPitch:staffDistance:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E3A67436-2541-4FAD-9FF7-A2D95DC2E451 - 4c29009dce4242ec"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "116"
-                  endingLineNumber = "116"
-                  offsetFromSymbolStart = "1720">
-               </Location>
-               <Location
-                  uuid = "E3A67436-2541-4FAD-9FF7-A2D95DC2E451 - 3a55e2aab794ed20"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static RandomHarmony.ChordFormat.AccidentalChordFormat.xOffset(accidentalPitch: RandomHarmony.Accidental, lastPitch: RandomHarmony.Accidental, staffDistance: Swift.Int) -&gt; CoreGraphics.CGFloat"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7D1EB816-28AE-4371-BF02-0820A60DC9A6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "flatAfterFlat(staffDistance:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B9ECF88B-3EAE-4AAD-873C-C261A77AB38C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "createAccidentalOrder(from:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B9ECF88B-3EAE-4AAD-873C-C261A77AB38C - 4c29009dce42409a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "1592">
-               </Location>
-               <Location
-                  uuid = "B9ECF88B-3EAE-4AAD-873C-C261A77AB38C - 4c29009dce42409a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #6 (Swift.Int, RandomHarmony.Pitch) -&gt; () in static RandomHarmony.ChordFormat.AccidentalChordFormat.createAccidentalOrder(from: Swift.Array&lt;RandomHarmony.Pitch&gt;) -&gt; Swift.Array&lt;RandomHarmony.ChordFormat.AccidentalChordFormat&gt;"
-                  moduleName = "RandomHarmony"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sibutrip/Documents/XCode%20Projects/RandomHarmony/RandomHarmony/ChordFormat/AccidentalChordFormat.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "1568">
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "40">
                </Location>
             </Locations>
          </BreakpointContent>
