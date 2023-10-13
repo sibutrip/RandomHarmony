@@ -105,16 +105,24 @@ extension ChordFormat {
                     } else {
                         closestPreviousPreviousAccidental = closestPreviousAccidental
                     }
-                    let staffDistance = closestPreviousAccidental.reduce(Int.max) { lastDistance, pitch in
-                        let newDistance = abs(accidentalPitch.staffOrder - pitch.staffOrder)
-                        return min(lastDistance,newDistance)
+                    let (staffDistance,previousAccidental) = closestPreviousAccidental.reduce((Int.max, Accidental.natural)) { lastDistance, previousPitch in
+                        let newDistance = previousPitch.staffOrder - accidentalPitch.staffOrder
+                        if abs(lastDistance.0) < abs(newDistance) {
+                            return lastDistance
+                        } else {
+                            return (newDistance, previousPitch.fixedSolfege.accidental)
+                        }
                     }
-                    let lastStaffDistance = closestPreviousPreviousAccidental.reduce(Int.max) { lastDistance, pitch in
-                        let newDistance = abs(accidentalPitch.staffOrder - pitch.staffOrder)
-                        return min(lastDistance,newDistance)
+                    let (lastStaffDistance,previousPreviousAccidental) = closestPreviousPreviousAccidental.reduce((Int.max, Accidental.natural)) { lastDistance, previousPitch in
+                        let newDistance = previousPitch.staffOrder - accidentalPitch.staffOrder
+                        if abs(lastDistance.0) < abs(newDistance) {
+                            return lastDistance
+                        } else {
+                            return (newDistance, previousPitch.fixedSolfege.accidental)
+                        }
                     }
-                    let currentOffset = Self.xOffset(first: previousAccidentalPitch.fixedSolfege.accidental, second: accidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
-                    let lastOffset = Self.xOffset(first: previousPreviousAccidentalPitch.fixedSolfege.accidental, second: accidentalPitch.fixedSolfege.accidental, staffDistance: lastStaffDistance)
+                    let currentOffset = Self.xOffset(first: previousAccidental, second: accidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
+                    let lastOffset = Self.xOffset(first: previousPreviousAccidental, second: accidentalPitch.fixedSolfege.accidental, staffDistance: lastStaffDistance)
 //                    let currentOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousAccidentalPitch.fixedSolfege.accidental, staffDistance: staffDistance)
 //                    let lastOffset = Self.xOffset(accidentalPitch: accidentalPitch.fixedSolfege.accidental, lastPitch: previousPreviousAccidentalPitch.fixedSolfege.accidental, staffDistance: lastStaffDistance)
                     var accidentalOffset: CGFloat

@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum IntervalDirection {
-    enum IntervalType: Int {
+    enum AccidentalInterval: Int {
         case unison, second, third, fourth, fifth, sixth, seventh, greaterThanSeventh
-        fileprivate static func from(_ staffDistance: Int) -> IntervalType {
+        fileprivate static func from(_ staffDistance: Int) -> AccidentalInterval {
+            let staffDistance = abs(staffDistance)
             return switch staffDistance {
             case 0:
                     .unison
@@ -157,7 +159,7 @@ enum IntervalDirection {
             case .third:
                 1.2
             case .fourth:
-                1.1
+                1.5
             case .fifth:
                 0.7
             case .sixth:
@@ -201,7 +203,7 @@ enum IntervalDirection {
             case .fourth:
                 1.1
             case .fifth:
-                0.7
+                1.0
             case .sixth:
                 0.6
             case .seventh:
@@ -285,14 +287,38 @@ enum IntervalDirection {
         }
     }
     
-    case ascending(IntervalType)
-    case descending(IntervalType)
+    case ascending(AccidentalInterval)
+    case descending(AccidentalInterval)
     
     public static func offset(from firstAccidental: Accidental, to currentAccidental: Accidental, over staffDistance: Int) -> CGFloat {
-        let interval = IntervalDirection.IntervalType.from(staffDistance)
+        let interval = IntervalDirection.AccidentalInterval.from(staffDistance)
         let direction: IntervalDirection = staffDistance > 0 ? .ascending(interval) : .descending(interval)
         let distance = interval.offset(from: firstAccidental, to: currentAccidental, in: direction)
         return distance
     }
 }
 
+struct IntervalDirection_Previews: PreviewProvider {
+    static var previews: some View {
+        GeometryReader { geo in
+            let height: CGFloat = geo.size.height
+            let staveCount = CGFloat(6)
+            let staffRatio = min(0.6, staveCount * -0.013 + 0.7)
+            let staffSpace = (1 - staffRatio) * height / (staveCount + 1) * 1.8
+            let staffHeight = staffRatio * height / staveCount - (staffSpace / staveCount)
+            let lineHeight = staffHeight / 63
+            let spaceHeight = staffHeight / 9
+            VStack {
+                StaffRow()
+//                                StaffRow(debugStaffRow: .flatflat)
+//                                StaffRow(debugStaffRow: .flatsharp)
+//                                StaffRow(debugStaffRow: .sharpflat)
+//                                StaffRow(debugStaffRow: .sharpsharp)
+            }
+            .environment(\.staffHeight, staffHeight)
+            .environment(\.staffSpace, staffSpace)
+            .environment(\.lineHeight, lineHeight)
+            .environment(\.spaceHeight, spaceHeight)
+        }
+    }
+}
